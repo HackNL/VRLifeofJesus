@@ -1,0 +1,19 @@
+{
+	"videos" : [
+		{
+			"filename" : "filename1",
+			"timestamp" : 30,
+			"datealias" : "4-11-2016",
+			"title" : "title1",
+			"description" : "description1"
+		},
+		{
+			"filename" : "filename1",
+			"timestamp" : 30,
+			"datealias" : "4-11-2016",
+			"title" : "title2",
+			"description" : "description2"
+		}
+	]
+}
+
