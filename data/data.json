@@ -1,16 +1,16 @@
 {
 	"videos" : [
 		{
-			"id" :  1,
+			"filename" : "filename1",
 			"timestamp" : 30,
-			"timetext" : "4-11-2016",
+			"datealias" : "4-11-2016",
 			"title" : "title1",
 			"description" : "description1"
 		},
 		{
-			"id" :  2,
+			"filename" : "filename1",
 			"timestamp" : 30,
-			"timetext" : "4-11-2016",
+			"datealias" : "4-11-2016",
 			"title" : "title2",
 			"description" : "description2"
 		}
