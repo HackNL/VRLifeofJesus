@@ -16,7 +16,7 @@ VR.router = (function () {
 
       VR.landing.init();
     } else if (id === '#video') {
-
+      console.log('hiosd');
       // VR.render.init();
     } else if (id === '#timeline') {
       VR.timeline.init();

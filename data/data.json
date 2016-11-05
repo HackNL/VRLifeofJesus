@@ -1,44 +1,39 @@
 {
-	"videos" : [
-		{
-			"video1": {
-				"filename" : "video1.mp4",
-				"thumbnail": "video1.jpg",
-				"timestamp" : 30,
-				"datealias" : "2016/11/4",
-				"title" : "Video1",
-				"description" : "This is video1"
-			}
-		},
-		{
-			"video2":{
-				"filename" : "video2.mp4",
-				"thumbnail": "video2.jpg",
-				"timestamp" : 55,
-				"datealias" : "2016/11/15",
-				"title" : "Video2",
-				"description" : "This is video2"
-			}
-		},
-		{
-			"video3":{
-				"filename" : "video3.mp4",
-				"thumbnail": "video3.jpg",
-				"timestamp" : 78,
-				"datealias" : "2016/11/30",
-				"title" : "Video3",
-				"description" : "This is video3"
-			}
-		},
-		{
-			"video4":{
-				"filename" : "video4.mp4",
-				"thumbnail": "video4.jpg",
-				"timestamp" : 95,
-				"datealias" : "2016/12/6",
-				"title" : "Video4",
-				"description" : "This is video4"
-			}
-		}
-	]
+    "videos": [{
+        "video1": {
+            "filename": "video1.mp4",
+            "thumbnail": "video1.jpg",
+            "timestamp": 30,
+            "datealias": "2016/11/4",
+            "title": "Video1",
+            "description": "This is video1"
+        }
+    }, {
+        "video2": {
+            "filename": "video2.mp4",
+            "thumbnail": "video2.jpg",
+            "timestamp": 55,
+            "datealias": "2016/11/15",
+            "title": "Video2",
+            "description": "This is video2"
+        }
+    }, {
+        "video3": {
+            "filename": "video3.mp4",
+            "thumbnail": "video3.jpg",
+            "timestamp": 78,
+            "datealias": "2016/11/30",
+            "title": "Video3",
+            "description": "This is video3"
+        }
+    }, {
+        "video4": {
+            "filename": "video4.mp4",
+            "thumbnail": "video4.jpg",
+            "timestamp": 95,
+            "datealias": "2016/12/6",
+            "title": "Video4",
+            "description": "This is video4"
+        }
+    }]
 }

@@ -10,10 +10,18 @@ VR.landing = (function () {
       '#F05050',
     ];
     var body = document.querySelector('body');
-    console.log(body)
+
     var number = getRandomInt(0, 4);
     body.style.backgroundColor = colors[number];
     VR.get.loading(false);
+    _button();
+  }
+
+  function _button() {
+    var landingbutton = VR.get.one('#landingbutton');
+    landingbutton.addEventListener('click', function () {
+      VR.router.show('#timeline')
+    });
   }
   return {
     init: init

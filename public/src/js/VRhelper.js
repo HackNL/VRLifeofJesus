@@ -2,8 +2,8 @@
 VR.get = (function () {
   function urls(url) {
 
-    let base = '/VRLifeofJesus/';
-    // let base = '//localhost:8001/';
+    // let base = '/VRLifeofJesus/';
+    let base = '/';
     let tumbUrl = base + 'media/thumbnails/' + url;
     let videoUrl = base + 'media/video/' + url;
     let dataUrl = base + 'data/' + url;
