@@ -1,6 +1,6 @@
 VR.render = (function () { //funtion to render a template.
     var width = 0, videoSize = 500;
-
+    var timelineData={};
     //render the template
     function init() {
         // r._getData();
@@ -12,7 +12,9 @@ VR.render = (function () { //funtion to render a template.
         let url = VR.get.urls('data.json').dataUrl;
 
         VR.get.data(url).then(response => {
-            videoList.appendChild(_generateTimeline(JSON.parse(response)));
+            var parsed=JSON.parse(response);
+            timelineData=parsed;
+            videoList.appendChild(_generateTimeline(parsed));
         });
 
         // console.log(document.getElementsByClassName('.video-list')[0]);
@@ -76,6 +78,7 @@ VR.render = (function () { //funtion to render a template.
     })
 // }
     return {
-        init: init
+        init: init,
+        timelineData:timelineData
     };
 })();

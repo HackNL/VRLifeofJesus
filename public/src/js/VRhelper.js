@@ -3,7 +3,7 @@ VR.get = (function () {
   function urls(url) {
 
     // let base = '/VRLifeofJesus/';
-    let base = '';
+    let base = './';
     let tumbUrl = base + 'media/thumbnails/' + url;
     let videoUrl = base + 'media/video/' + url;
     let dataUrl = base + 'data/' + url;
@@ -49,7 +49,7 @@ VR.get = (function () {
         } else {
           // reject the promise if there is a err
           reject(new Error('request failed!'));
-          VR.ux.showErr('There went something wrong');
+          console.log('There went something wrong');
         }
       };
       //send the request
