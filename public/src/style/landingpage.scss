@@ -1,0 +1,64 @@
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#vrmode {
+  text-align: left;
+}
+
+li {
+  color: #fff;
+  list-style-type: none;
+  text-transform: left;
+  margin-top: 2em;
+}
+
+ul {
+  margin-bottom: 0.35em;
+}
+
+#landing {
+  background-color: #000000;
+  margin: 10% 15%;
+  padding: 10%;
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+}
+
+#landingheader {
+  text-align: center;
+}
+
+#landgingVR {
+  text-align: left;
+}
+
+a#landingbutton {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  display: inline-block;
+  flex-grow: 0;
+  padding: 0.5em 1em;
+  border: none;
+  text-align: center;
+  background-color: transparent;
+  border: solid 2px #fff;
+  color: #fff;
+  font-size: 100%;
+  font-weight: 400;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+}

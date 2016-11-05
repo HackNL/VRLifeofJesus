@@ -12,6 +12,9 @@ VR.router = (function () {
 
     if (id === '#cardboard') {
       VR.cardboard.init();
+    } else if (id === '#landing') {
+
+      VR.landing.init();
     } else if (id === '#video') {
 
       // VR.render.init();

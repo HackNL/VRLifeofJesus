@@ -159,6 +159,7 @@ gulp.task('scripts', function () {
       './public/src/js/VRhelper.js',
       './public/src/js/VRdate.js',
       './public/src/js/VRrouter.js',
+      './public/src/js/VRlanding.js',
       './public/src/js/VRtimeline.js',
       './public/src/js/VRinit.js'
     ])
