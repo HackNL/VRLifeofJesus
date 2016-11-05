@@ -43,6 +43,22 @@
 </head>
 
 <body>
+<script type="text/javascript">
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    var colors = ['#F0F082',
+        '#8CF08C' ,
+        '#8CF0F0' ,
+        '#8CA0FF' ,
+        '#F05050' ,];
+    var body = document.querySelector('body');
+    console.log(body)
+    var number = getRandomInt(0,4);
+    body.style.backgroundColor = colors[number];
+    console.log(colors[number]);
+
+</script>
     <header role="banner">
     </header>
     <main>
@@ -61,8 +77,9 @@
             <article class="video-list">
 
             </article>
+            <div id="timeline"></div>
 
-          <div class="video-wrapper">
+          <div class="video-wrapper" style="display: none;">
             	<div class="thumbnail-wrapper">
 	            	<img class="thumbnail" src="media/thumbnails/video1.jpg">
 								<div class="media-caption">
