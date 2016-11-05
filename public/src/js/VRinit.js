@@ -3,7 +3,6 @@ VR.start = (function () {
   var init = function () {
     VR.router.show('#landing');
   };
-
   return {
     init: init
   };
