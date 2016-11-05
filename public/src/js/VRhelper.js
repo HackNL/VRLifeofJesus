@@ -58,7 +58,7 @@ VR.get = (function () {
   }
   // show or hide the loading spinner
   function loading(show) {
-    let delayTime = 300;
+    let delayTime = 1000;
     if (show) {
       VR.get.one('.loading').classList.remove('disabled');
     } else {
