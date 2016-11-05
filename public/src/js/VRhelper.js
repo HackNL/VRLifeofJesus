@@ -1,5 +1,20 @@
 //To easily select something from the DOM
 VR.get = (function () {
+  function urls(url) {
+    let base = '//localhost:7000/';
+    let tumbUrl = base + 'media/thumbnails/' + url;
+    let videoUrl = base + 'media/video/' + url;
+    let dataUrl = base + 'media/video/' + url;
+
+    return {
+      base: base,
+      tumbUrl: tumbUrl,
+      videoUrl: videoUrl,
+      dataUrl: dataUrl
+
+    };
+  }
+
   function one(selector) { //This is a method
     return document.querySelector(selector);
   }
@@ -41,6 +56,7 @@ VR.get = (function () {
   }
 
   return { //return only the funtions that are nesseeriy
+    urls: urls,
     one: one,
     all: all,
     data: data
