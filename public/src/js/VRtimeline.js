@@ -1,6 +1,7 @@
 VR.timeline = (function () { //funtion to render a template.
   //render the template
   let _videos;
+  let _selectedVideoId;
 
   function init() {
     // r._getData();
@@ -38,7 +39,7 @@ VR.timeline = (function () { //funtion to render a template.
     let tumbUrlGenerated = VR.get.urls(tumbUrl).tumbUrl;
     let videoUrl = VR.get.urls(tumbUrl).tumbUrl;
 
-    let video = '<ul><div class="video-wrapper">';
+    let video = '<li><div class="video-wrapper">';
     video += '					<div class="thumbnail-wrapper">'
     video += '						<img class="thumbnail" src="' + tumbUrlGenerated + '">';
     video += '  					<div class="media-caption">';
@@ -53,7 +54,7 @@ VR.timeline = (function () { //funtion to render a template.
     video += '					<video autoplay controls style="display:none;">';
     video += '					Sorry, your browser doesnt support embedded videos';
     video += '					</video>';
-    video += '</div></ul>';
+    video += '</div></li>';
     return video;
   }
 
@@ -61,10 +62,10 @@ VR.timeline = (function () { //funtion to render a template.
     VR.get.one('.video-list ul').addEventListener('click', function (e) {
       if (e.target.className == "video-play") {
 
-        var selectedVideoId = e.target.dataset.videoId;
-        var selectedVideo = getVideo(selectedVideoId);
+        _selectedVideoId = e.target.dataset.videoId;
+        var selectedVideo = getVideo(_selectedVideoId);
         console.log(selectedVideo);
-        selectedVideo.id = selectedVideoId;
+        selectedVideo.id = _selectedVideoId;
 
 
         // Navigate to the meta video view
@@ -79,24 +80,32 @@ VR.timeline = (function () { //funtion to render a template.
   }
 
   function clickMetaVideo() {
-    VR.get.one('.video-meta').addEventListener('click', function (e) {
-      if (e.target.id == "meta-video-play") {
-        var selectedVideoId = e.target.dataset.videoId;
-        var selectedVideo = getVideo(selectedVideoId)[selectedVideoId];
+    VR.get.one('#meta-video-play').addEventListener('click', function (e) {
+      var selectedVideoId = e.target.dataset.videoId;
+      var selectedVideo = getVideo(selectedVideoId)[selectedVideoId];
 
-        if (getActiveSection() == 'video-meta') {
-          // Play the video
-          console.log('Play te video');
+      // Play the video
+      console.log('Play te video');
 
-          var metaVideoElement = document.getElementById('meta-video');
-          metaVideoElement.src = 'media/video/' + selectedVideo.filename;
-          metaVideoElement.style.display = 'block';
-          document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'none';
-        }
-      }
+      var metaVideoElement = document.getElementById('meta-video');
+      metaVideoElement.src = 'media/video/' + selectedVideo.filename;
+      metaVideoElement.style.display = 'block';
+      document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'none';
     });
   }
 
+
+  function clickCloseMeta(){
+  	VR.get.one('.close').addEventListener('click', function (e) {
+      VR.router.show('#timeline');
+      var videoElement = document.getElementById('meta-video');
+      console.log('check')
+      console.log(videoElement.pause())
+      console.log(videoElement)
+      videoElement.pause();
+      videoElement.currentTime = 0;
+    });
+  }
 
   /**
    * Renders the video meta data in the video-meta section
@@ -110,6 +119,8 @@ VR.timeline = (function () { //funtion to render a template.
     document.getElementById('description').innerHTML = selectedVideo[selectedVideo.id].description;
     document.getElementById('date-alias').innerHTML = selectedVideo[selectedVideo.id].datealias;
     document.getElementById('meta-thumbnail').src = 'media/thumbnails/' + selectedVideo[selectedVideo.id].thumbnail;
+    clickMetaVideo();
+    clickCloseMeta();
   }
 
   /**
