@@ -6,7 +6,7 @@ VR.render = (function () { //funtion to render a template.
   }
 
   function _getData() {
-    VR.get.data('//127.0.0.1:8080/data/data.json').then(response => {
+    VR.get.data('data/data.json').then(response => {
       _generateTimeline(JSON.parse(response));
     });
   }
@@ -34,6 +34,21 @@ VR.render = (function () { //funtion to render a template.
       }, 300); //add a delay because you won't see it with fast internet.
     }
   };
+
+  document.getElementsByClassName('video-play')[0].addEventListener('click', function(){
+  	console.log();
+  	var videoElement = document.getElementsByTagName('video')[0];
+  	videoElement.src = 'media/video/' + this.dataset.filename;
+  	videoElement.style.display = 'block';
+
+  	document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
+
+
+
+
+  	// var fileName = e.srcElement.attributes
+  })
+
   return {
     init: init,
     loading: loading
