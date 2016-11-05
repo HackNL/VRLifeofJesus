@@ -1,0 +1,67 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, span, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center; color:#FFFFFF;
+}
+
+h2{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color:#FFFFFF
+}
+
+#vrmode {
+  text-align: left;
+}
+
+li {
+  color: #fff;
+  list-style-type: none;
+  text-transform: left;
+  margin-top: 2em;
+}
+ul {
+  margin-bottom: .35em;
+}
+
+#landing {
+background-color:#000000;
+margin:10% 15%;
+padding:10%;
+box-sizing: border-box;
+display: block;
+text-align: center;
+}
+
+#landingheader{
+  text-align:center;
+}
+#landgingVR{
+  text-align: left;
+}
+
+a#landingbutton {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  display: inline-block;
+  flex-grow: 0;
+  padding: .5em 1em;
+  border: none;
+  text-align:center;
+  background-color: transparent;
+  border: solid 2px #fff;
+  color: #fff;
+  font-size: 100%;
+  font-weight: 400;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+}
