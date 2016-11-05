@@ -11,7 +11,7 @@ VR.router = (function () {
     selectedPage.classList.remove('disabled');
 
     if (id === '#cardboard') {
-      VR.cardboard.init();
+      VR.V3d.init();
     } else if (id === '#landing') {
 
       VR.landing.init();

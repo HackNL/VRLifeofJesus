@@ -63,10 +63,12 @@
             <h2>Experience the Life of Jesus trough a timeline of clips, augumented reality & VR</h2>
 
             <button id="landingbutton" name="button">Enter Now</button>
+            <button onclick="VR.router.show('#cardboard')" name="button">VR</button>
         </section>
 
         <section id="cardboard" class="page">
-
+            <div id="timeline3D">
+            </div>
         </section>
         <section id="timeline" class="page">
             <article class="video-list">
@@ -100,7 +102,13 @@
 
         </section>
     </main>
-    <script src="./public/dist/js/app.js" language="javascript"></script>
+    <script src="./public/src/lib/three.js"></script>
+    <script src="./public/src/lib/StereoEffect.js"></script>
+    <script src="./public/src/lib/DeviceOrientationControls.js"></script>
+    <script src="./public/src/lib/OrbitControls.js"></script>
+    <script src="./public/dist/js/app.js"></script>
+    <script src="./public/src/VR3d.js"></script>
+    <script src="./public/src/js/VRinit.js"></script>
 
 </body>
 
