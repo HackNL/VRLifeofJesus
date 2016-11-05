@@ -27,8 +27,8 @@ VR.timeline = (function () { //funtion to render a template.
     data.videos.forEach(function (obj) {
       var videoId = Object.keys(obj)[0];
 
-      let element = _createVideoElement(obj[videoId].thumbnail, obj[videoId].title, obj[videoId].description, videoId);
-
+      let element = _createVideoElement(obj.thumbnail, obj.title, obj.description, videoId);
+      console.log(obj);
       videoList.innerHTML += element; //add it to the ul
     });
     return videoList;
@@ -38,7 +38,7 @@ VR.timeline = (function () { //funtion to render a template.
   function _createVideoElement(tumbUrl, title, description, videoId) {
     let tumbUrlGenerated = VR.get.urls(tumbUrl).tumbUrl;
     let videoUrl = VR.get.urls(tumbUrl).tumbUrl;
-
+    console.log(tumbUrl);
     let video = '<li><div class="video-wrapper">';
     video += '					<div class="thumbnail-wrapper">'
     video += '						<img class="thumbnail" src="' + tumbUrlGenerated + '">';
@@ -63,6 +63,7 @@ VR.timeline = (function () { //funtion to render a template.
       if (e.target.className == "video-play") {
 
         _selectedVideoId = e.target.dataset.videoId;
+          console.log(_selectedVideoId);
         var selectedVideo = getVideo(_selectedVideoId);
         console.log(selectedVideo);
         selectedVideo.id = _selectedVideoId;
@@ -86,9 +87,9 @@ VR.timeline = (function () { //funtion to render a template.
 
       // Play the video
       console.log('Play te video');
-
+      console.log(selectedVideo);
       var metaVideoElement = document.getElementById('meta-video');
-      metaVideoElement.src = 'media/video/' + selectedVideo.filename;
+      metaVideoElement.src = 'media/video/' + selectedVideo;
       metaVideoElement.style.display = 'block';
       document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'none';
     });
@@ -115,10 +116,10 @@ VR.timeline = (function () { //funtion to render a template.
   function renderVideoMetaData(selectedVideo) {
     console.log(selectedVideo);
     document.getElementById('meta-video-play').setAttribute('data-video-id', selectedVideo.id);
-    document.getElementById('video-title').innerHTML = selectedVideo[selectedVideo.id].title;
-    document.getElementById('description').innerHTML = selectedVideo[selectedVideo.id].description;
-    document.getElementById('date-alias').innerHTML = selectedVideo[selectedVideo.id].datealias;
-    document.getElementById('meta-thumbnail').src = 'media/thumbnails/' + selectedVideo[selectedVideo.id].thumbnail;
+    document.getElementById('video-title').innerHTML = selectedVideo.title;
+    document.getElementById('description').innerHTML = selectedVideo.description;
+    document.getElementById('date-alias').innerHTML = selectedVideo.datealias;
+    document.getElementById('meta-thumbnail').src = 'media/thumbnails/' + selectedVideo.thumbnail;
     clickMetaVideo();
     clickCloseMeta();
   }
