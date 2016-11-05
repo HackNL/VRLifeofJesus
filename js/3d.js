@@ -49,7 +49,7 @@ function init()
 	scene.add(floor);
     clock = new THREE.Clock();
 
-    generateTimeline(camera);
+    generateCardboardTimeline(camera);
 
 	animate();
 }
@@ -63,7 +63,7 @@ init()
         render(clock.getDelta());
     }
 
-    function generateTimeline(camera) {
+    function generateCardboardTimeline(camera) {
     	var placeholder = new THREE.Object3D();
     	placeholder.name="placeholder";
     	var material = new THREE.MeshPhongMaterial({
@@ -75,11 +75,9 @@ init()
 		var geometry = new THREE.PlaneBufferGeometry(1.6, .9);
 		var media = new THREE.Mesh(geometry);
 		media.name="mediaPlane";
-		//media.rotation.set(Math.PI,0,0)
 
 		media.position.set(0,0,-2);
-		placeholder.add(media);
-		
+		placeholder.add(media);		
     }
 
 
