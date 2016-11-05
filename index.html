@@ -37,21 +37,38 @@
     <meta name="msapplication-TileColor" content="#000">
     <meta name="msapplication-TileImage" content="/favicon-144.png">
     <meta name="msapplication-config" content="/browserconfig.xml">
+    <!-- style  -->
+    <link rel="stylesheet" href="./public/src/style/loading.css">
+    <link rel="stylesheet" href="./public/src/style/style.css">
     <title>VR live of Jesus</title>
 </head>
 
 <body>
     <header role="banner">
-        <nav>
-
-        </nav>
     </header>
     <main>
+        <section class="loading">
+            <div class="cssload-container">
+                <div class="cssload-loading">
+                    <i></i>
+                    <i></i>
+                </div>
+            </div>
+        </section>
         <div class="warning disabled animate" role="alert" id="error-popup">
             <span id="error-popup-content"></span>
         </div>
+        <section>
+            <article class="">
+
+            </article>
+        </section>
     </main>
-    <script src="/js/app.js" language="javascript"></script>
+
+    <script src="public/src/js/VRstart.js" language="javascript"></script>
+    <script src="public/src/js/VRhelper.js" language="javascript"></script>
+    <script src="public/src/js/VRrender.js" language="javascript"></script>
+    <script src="public/src/js/VRinit.js" language="javascript"></script>
 </body>
 
 </html>
