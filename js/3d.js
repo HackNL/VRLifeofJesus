@@ -22,7 +22,6 @@ function init()
 	controls.noPan = true;
 	controls.noZoom = true;
 
-	window.addEventListener('deviceorientation', setOrientationControls, true);
 
 	function setOrientationControls(e) 
 	{
@@ -30,10 +29,10 @@ function init()
 		controls = new THREE.DeviceOrientationControls(camera, true);
 		controls.connect();
 		controls.update();
+		element.addEventListener('click', fullscreen, false);
+		window.removeEventListener('deviceorientation', setOrientationControls, true);
 	}
-	element.addEventListener('click', fullscreen, false);
-
-	window.removeEventListener('deviceorientation', setOrientationControls, true);
+	window.addEventListener('deviceorientation', setOrientationControls, true);
 
 	var light = new THREE.PointLight(0x999999, 2, 100);
 	light.position.set(50, 50, 50);
@@ -48,20 +47,30 @@ function init()
 	var floor = new THREE.Mesh(geometry);
 	floor.rotation.x = -Math.PI / 2;
 	scene.add(floor);
+    clock = new THREE.Clock();
+	animate();
 }
 init()
 
+	function animate() {
+        var elapsedSeconds = clock.getElapsedTime();
+        requestAnimationFrame(animate);
 
- function resize() {
-    var width = container.offsetWidth;
-    var height = container.offsetHeight;
+        update(clock.getDelta());
+        render(clock.getDelta());
+    }
 
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
+	function resize() 
+	{
+		var width = container.offsetWidth;
+		var height = container.offsetHeight;
 
-    renderer.setSize(width, height);
-    effect.setSize(width, height);
-  }
+		camera.aspect = width / height;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize(width, height);
+		effect.setSize(width, height);
+	}
 
   function update(dt) {
     resize();
