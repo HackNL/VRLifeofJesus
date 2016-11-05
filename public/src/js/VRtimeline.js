@@ -1,23 +1,23 @@
 VR.timeline = (function () { //funtion to render a template.
   //render the template
   let _videos;
-  let _selectedVideoId;
+  let _selectedVideoId,
+    timelineData = {};
 
+  //render the template
   function init() {
     // r._getData();
     _getData();
   }
 
   function _getData() {
-
     let videoList = VR.get.one('.video-list');
     let url = VR.get.urls('data.json').dataUrl;
 
     VR.get.data(url).then(response => {
-      _videos = JSON.parse(response);
-
-      videoList.appendChild(_generateTimeline(_videos));
-      clickVideo();
+      var parsed = JSON.parse(response);
+      timelineData = parsed;
+      videoList.appendChild(_generateTimeline(parsed));
     });
   }
 
@@ -28,7 +28,7 @@ VR.timeline = (function () { //funtion to render a template.
       var videoId = Object.keys(obj)[0];
 
       let element = _createVideoElement(obj.thumbnail, obj.title, obj.description, videoId);
-      console.log(obj);
+      // console.log(obj);
       videoList.innerHTML += element; //add it to the ul
     });
     return videoList;
@@ -38,7 +38,7 @@ VR.timeline = (function () { //funtion to render a template.
   function _createVideoElement(tumbUrl, title, description, videoId) {
     let tumbUrlGenerated = VR.get.urls(tumbUrl).tumbUrl;
     let videoUrl = VR.get.urls(tumbUrl).tumbUrl;
-    console.log(tumbUrl);
+    // console.log(tumbUrl);
     let video = '<li><div class="video-wrapper">';
     video += '					<div class="thumbnail-wrapper">'
     video += '						<img class="thumbnail" src="' + tumbUrlGenerated + '">';
@@ -63,7 +63,7 @@ VR.timeline = (function () { //funtion to render a template.
       if (e.target.className == "video-play") {
 
         _selectedVideoId = e.target.dataset.videoId;
-          console.log(_selectedVideoId);
+        console.log(_selectedVideoId);
         var selectedVideo = getVideo(_selectedVideoId);
         console.log(selectedVideo);
         selectedVideo.id = _selectedVideoId;
@@ -79,6 +79,30 @@ VR.timeline = (function () { //funtion to render a template.
       }
     });
   }
+
+  // function _dragScroll() {
+  //   var curYPos = 0,
+  //     curXPos = 0,
+  //     curDown = false;
+  //
+  //   window.addEventListener('mousemove', function (e) {
+  //     if (curDown === true) {
+  //       var timeLine = VR.get.one('#timeline');
+  //
+  //     }
+  //   });
+  //
+  //   window.addEventListener('mousedown', function (e) {
+  //
+  //     curDown = true;
+  //     curYPos = e.pageY;
+  //     curXPos = e.pageX;
+  //   });
+  //
+  //   window.addEventListener('mouseup', function (e) {
+  //     curDown = false;
+  //   });
+  // }
 
   function clickMetaVideo() {
     VR.get.one('#meta-video-play').addEventListener('click', function (e) {
