@@ -84,7 +84,6 @@ VR.V3d = (function () {
     generateTimeline(camera);
     animate();
   }
-
   function enableVR()
   {
     console.log("enabling VR");

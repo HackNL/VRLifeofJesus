@@ -47,11 +47,9 @@
 <body>
     <main>
         <section class="loading">
-            <div class="cssload-container">
-                <div class="cssload-loading">
-                    <i></i>
-                    <i></i>
-                </div>
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
             </div>
         </section>
         <section class="warning disabled animate" role="alert" id="error-popup">
@@ -59,14 +57,22 @@
         </section>
 
         <section id="landing" class="page">
-            <h1>The Life of Jesus</h1>
-            <h2>Experience the Life of Jesus trough a timeline of clips, augumented reality & VR</h2>
+            <div class="wrap">
+                <div class="bg"></div>
+                <div class="card">
+                    <h1>The Life of Jesus</h1>
+                    <p>Experience the Life of Jesus trough a timeline of clips in augumented reality & VR</p>
 
-            <button id="landingbutton" name="button">Enter Now</button>
-            <button onclick="VR.router.show('#cardboard')" name="button">VR</button>
+                    <div class="buttons">
+                        <button id="landingbutton" class="btn" name="button">Enter Now</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- the cardboard -->
         <section id="cardboard" class="page">
+            <button onclick="VR.router.show('#cardboard')" class="btn btn-right"  name="button">VR</button>
             <div id="timeline3D">
             </div>
             <video id="cardboardOffscreenVideo" webkit-playsinline style="display:none">
@@ -75,13 +81,20 @@
             <canvas id="cardboardOffscreenCanvas" width=1024 height=1024 style="display:none"></canvas>
             <div style="position:absolute;right:20px;bottom:20px;" onclick="VR.V3d.toggleVR();"><img src="media/gui/cardboardIcon.png"></div>
         </section>
+
+        <!-- the time line -->
         <section id="timeline" class="page">
+            <button onclick="VR.router.show('#cardboard')"  class="btn btn-right" name="button">VR</button>
             <article class="video-list">
                 <span class="filling-line"></span>
             </article>
         </section>
 
+        <!-- the video detail page -->
         <section class="page" id="video">
+      		<div id="menu-bar">
+      			<div class="close"></div>
+      		</div>
             <div class="video-wrapper video-meta-wrapper">
                 <div class="thumbnail-wrapper meta-thumbnail-wrapper">
                     <img class="thumbnail" id="meta-thumbnail" src="media/thumbnails/video1.jpg">
@@ -96,13 +109,15 @@
                 </div>
                 <video id="meta-video" src="" autoplay controls style="display:none;">
 							Sorry, your browser doesn't support embedded videos
-						</video>
+								</video>
             </div>
 
             <div class="content-wrapper">
+            	<div class="content-inner">
                 <h2 id="video-title"></h2>
                 <p id="date-alias"></p>
                 <p id="description"></p>
+            	</div>
             </div>
 
         </section>
