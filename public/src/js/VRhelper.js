@@ -1,7 +1,7 @@
 //To easily select something from the DOM
 VR.get = (function () {
   function urls(url) {
-    let base = '//localhost:7000/';
+    let base = '/VRLifeofJesus/';
     let tumbUrl = base + 'media/thumbnails/' + url;
     let videoUrl = base + 'media/video/' + url;
     let dataUrl = base + 'data/' + url;
