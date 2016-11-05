@@ -15,100 +15,100 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   csswring = require('csswring'),
   sourcemaps = require('gulp-sourcemaps');
-  // faviconConfig = [{
-  //   width: 310,
-  //   rename: {
-  //     suffix: '-310'
-  //   }
-  // }, {
-  //   width: 192,
-  //   rename: {
-  //     suffix: '-192'
-  //   }
-  // }, {
-  //   width: 180,
-  //   rename: {
-  //     suffix: '-180'
-  //   }
-  // }, {
-  //   width: 160,
-  //   rename: {
-  //     suffix: '-160'
-  //   }
-  // }, {
-  //   width: 152,
-  //   rename: {
-  //     suffix: '-152'
-  //   }
-  // }, {
-  //   width: 150,
-  //   rename: {
-  //     suffix: '-150'
-  //   }
-  // }, {
-  //   width: 144,
-  //   rename: {
-  //     suffix: '-144'
-  //   }
-  // }, {
-  //   width: 120,
-  //   rename: {
-  //     suffix: '-120'
-  //   }
-  // }, {
-  //   width: 114,
-  //   rename: {
-  //     suffix: '-114'
-  //   }
-  // }, {
-  //   width: 96,
-  //   rename: {
-  //     suffix: '-96'
-  //   }
-  // }, {
-  //   width: 76,
-  //   rename: {
-  //     suffix: '-76'
-  //   }
-  // }, {
-  //   width: 72,
-  //   rename: {
-  //     suffix: '-72'
-  //   }
-  // }, {
-  //   width: 70,
-  //   rename: {
-  //     suffix: '-70'
-  //   }
-  // }, {
-  //   width: 64,
-  //   rename: {
-  //     suffix: '-64'
-  //   }
-  // }, {
-  //   width: 60,
-  //   rename: {
-  //     suffix: '-60'
-  //   }
-  // }, {
-  //   width: 57,
-  //   rename: {
-  //     suffix: '-57'
-  //   }
-  // }, {
-  //   width: 32,
-  //   rename: {
-  //     suffix: '-32'
-  //   }
-  // }, {
-  //   width: 16,
-  //   rename: {
-  //     suffix: '-16'
-  //   }
-  // }];
+// faviconConfig = [{
+//   width: 310,
+//   rename: {
+//     suffix: '-310'
+//   }
+// }, {
+//   width: 192,
+//   rename: {
+//     suffix: '-192'
+//   }
+// }, {
+//   width: 180,
+//   rename: {
+//     suffix: '-180'
+//   }
+// }, {
+//   width: 160,
+//   rename: {
+//     suffix: '-160'
+//   }
+// }, {
+//   width: 152,
+//   rename: {
+//     suffix: '-152'
+//   }
+// }, {
+//   width: 150,
+//   rename: {
+//     suffix: '-150'
+//   }
+// }, {
+//   width: 144,
+//   rename: {
+//     suffix: '-144'
+//   }
+// }, {
+//   width: 120,
+//   rename: {
+//     suffix: '-120'
+//   }
+// }, {
+//   width: 114,
+//   rename: {
+//     suffix: '-114'
+//   }
+// }, {
+//   width: 96,
+//   rename: {
+//     suffix: '-96'
+//   }
+// }, {
+//   width: 76,
+//   rename: {
+//     suffix: '-76'
+//   }
+// }, {
+//   width: 72,
+//   rename: {
+//     suffix: '-72'
+//   }
+// }, {
+//   width: 70,
+//   rename: {
+//     suffix: '-70'
+//   }
+// }, {
+//   width: 64,
+//   rename: {
+//     suffix: '-64'
+//   }
+// }, {
+//   width: 60,
+//   rename: {
+//     suffix: '-60'
+//   }
+// }, {
+//   width: 57,
+//   rename: {
+//     suffix: '-57'
+//   }
+// }, {
+//   width: 32,
+//   rename: {
+//     suffix: '-32'
+//   }
+// }, {
+//   width: 16,
+//   rename: {
+//     suffix: '-16'
+//   }
+// }];
 
 gulp.task('build', function () {
-  gulp.start( 'styles', 'scripts');
+  gulp.start('styles', 'scripts');
 });
 
 // gulp.task('favicons', function() {
@@ -161,8 +161,7 @@ gulp.task('scripts', function () {
       './public/src/js/VRdate.js',
       './public/src/js/VRrouter.js',
       './public/src/js/VRlanding.js',
-      './public/src/js/VRtimeline.js',
-      './public/src/js/VRinit.js'
+      './public/src/js/VRtimeline.js'
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
@@ -200,5 +199,5 @@ gulp.task('watch', function () {
   // Watch .js files
   gulp.watch('./public/src/js/*.js', ['scripts']);
   // Create LiveReload server
-  gulp.watch( './public/src/**', [browserSync.reload]);
+  gulp.watch('./public/src/**', [browserSync.reload]);
 });
