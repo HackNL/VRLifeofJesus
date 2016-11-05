@@ -85,3 +85,131 @@
 video {
   width: 100%;
 }
+#video{
+	.video-wrapper:after{
+		display:none;
+	}
+	.video-container{
+		max-width:40em;
+		margin:0 auto;
+	}
+	.video-wrapper, .content-wrapper{
+		margin: 0 auto;
+
+		display:block;
+		width: 100%;
+		text-align: left;
+    /*box-shadow: 10px 0 10px -4px rgba(0, 0, 0, 0.35), -10px 0 10px -7px rgba(0,0,0,0.35);*/
+	}
+	.video-wrapper{
+		margin-top: 50px;
+	}
+	.content-wrapper{
+    width: 94%;
+    padding: 40px 3%;;
+	}
+	h2{
+		padding: 0 0 20px 0;
+	}
+	#menu-bar{
+    background: rgba(0, 0, 0, 0.15);
+    height: 50px;
+    padding-right: 10px;
+	}
+
+	.close{
+		float: right;
+		position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 50px;
+    overflow: hidden;
+	}
+	.close:hover{
+		opacity:0.5;
+	}
+	.close.black::before, .close.black::after {
+	    height: 8px;
+	    margin-top: -4px;
+	}
+
+	.close::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+	}
+	.close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+	.close::before, .close::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #fff;
+	}
+
+
+
+
+}
+
+@media screen and (max-width:768px) and (orientation : landscape) {
+#video{
+	.video-wrapper{
+		float: left;
+		max-width: 60%;
+		display: inline;
+		margin-top: 0;
+	}
+	.content-wrapper{
+		float: left;
+		max-width: 34%;
+		display: inline;
+	}
+}
+}
+
+
+/*
+@media screen and (max-width:770px) {
+	#video{
+		.video-wrapper, .content-wrapper{
+			width: 100%;
+			margin-top: 0;
+			box-shadow:none;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.video-play{
+			top: 60%;
+		}
+		.content-inner{
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+}
+
+@media screen and (orientation:landscape) {
+		#video{
+			.content-wrapper{
+				float: left;
+				width: 50%;
+			}
+			.video-meta-wrapper{
+				float: left;
+				width: 50%;
+			}
+		}
+
+ }*/
