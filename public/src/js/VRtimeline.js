@@ -1,4 +1,4 @@
-VR.render = (function () { //funtion to render a template.
+VR.timeline = (function () { //funtion to render a template.
   //render the template
   function init() {
     // r._getData();
@@ -6,8 +6,10 @@ VR.render = (function () { //funtion to render a template.
   }
 
   function _getData() {
+
     let videoList = VR.get.one('.video-list');
     let url = VR.get.urls('data.json').dataUrl;
+    console.log(videoList);
 
     VR.get.data(url).then(response => {
       videoList.appendChild(_generateTimeline(JSON.parse(response)));
@@ -27,7 +29,8 @@ VR.render = (function () { //funtion to render a template.
   function _createVideoElement(tumbUrl, title, description) {
     let tumbUrlGenerated = VR.get.urls(tumbUrl).tumbUrl;
     let videoUrl = VR.get.urls(tumbUrl).tumbUrl;
-    let video = '<ul><div class="video-wrapper">';
+
+    let video = '<li><div class="video-wrapper">';
     video += '<img class="thumbnail" src="' + tumbUrlGenerated + '">';
     video += '  <div class="media-caption">';
     video += '  <div class="caption-content">';
@@ -37,32 +40,21 @@ VR.render = (function () { //funtion to render a template.
     video += '    </div>';
     video += '  <div class="video-play">';
     video += '  </div>';
-    video += '</div></ul>';
+    video += '</div></li>';
     return video;
   }
-  // show or hide the loading spinner
-  function loading(show) {
-    let delayTime = 300;
-    if (show) {
-      VR.get.one('.loading').classList.remove('disabled');
-    } else {
-      //show loading
-      setTimeout(function () {
-        VR.get.one('.loading').classList.add('disabled');
-      }, delayTime); //add a delay because you won't see it with fast internet.
-    }
+
+
+
+  // document.getElementsByClassName('video-play')[0].addEventListener('click', function () {
+  //   var videoElement = document.getElementsByTagName('video')[0];
+  //   videoElement.src = 'media/video/' + this.dataset.filename;
+  //   videoElement.style.display = 'block';
+  //
+  //   document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
+  // })
+  // }
+  return {
+    init: init
   };
-
-  document.getElementsByClassName('video-play')[0].addEventListener('click', function () {
-    var videoElement = document.getElementsByTagName('video')[0];
-    videoElement.src = 'media/video/' + this.dataset.filename;
-    videoElement.style.display = 'block';
-
-    document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
-  })
-// }
-return {
-  init: init,
-  loading: loading
-};
 })();

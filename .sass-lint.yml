@@ -1,0 +1,9 @@
+scss_files: './src/styles/**/*.scss'
+
+NestingDepth:
+    enabled: true
+    max_depth: 3
+
+SelectorDepth:
+  enabled: true
+  max_depth: 4

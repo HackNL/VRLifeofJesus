@@ -137,7 +137,11 @@ gulp.task('styles', function () {
     csswring
   ];
   return gulp.src([
-      './public/src/style/*.scss'
+      './public/src/style/style.scss',
+      './public/src/style/fonts.scss',
+      './public/src/style/loading.scss',
+      './public/src/style/video.scss',
+      './public/src/style/timeline.scss'
     ])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -154,7 +158,8 @@ gulp.task('scripts', function () {
       './public/src/js/VRstart.js',
       './public/src/js/VRhelper.js',
       './public/src/js/VRdate.js',
-      './public/src/js/VRrender.js',
+      './public/src/js/VRrouter.js',
+      './public/src/js/VRtimeline.js',
       './public/src/js/VRinit.js'
     ])
     .pipe(sourcemaps.init())

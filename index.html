@@ -14,6 +14,8 @@
     <meta name="msapplication-navbutton-color" content="#000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
     <meta name="theme-color" content="#000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <!-- favicons -->
     <link rel="mask-icon" href="/favicon.svg" color="#000">
@@ -54,33 +56,21 @@
                 </div>
             </div>
         </section>
-        <div class="warning disabled animate" role="alert" id="error-popup">
+        <section class="warning disabled animate" role="alert" id="error-popup">
             <span id="error-popup-content"></span>
-        </div>
-        <section>
-            <article class="video-list">
-
-            </article>
-
-          <div class="video-wrapper">
-            	<div class="thumbnail-wrapper">
-	            	<img class="thumbnail" src="media/thumbnails/video1.jpg">
-								<div class="media-caption">
-									<div class="caption-content">
-										<h2>Video title</h2>
-										<span>Video description</span>
-									</div>
-								</div>
-								<div class="video-play" data-filename="video1.mp4">
-								</div>
-            	</div>
-			         <video src="" autoplay controls style="display:none;">
-								Sorry, your browser doesn't support embedded videos,
-								but don't worry, you can <a id="video-link" href="media/video/video1.mp4">download it</a>
-								and watch it with your favorite video player!
-							</video>
-            </div>
         </section>
+        <section id="cardboard" class="page">
+
+        </section>
+        <section id="timeline" class="page">
+            <article class="video-list">
+                <span class="filling-line"></span>
+            </article>
+        </section>
+        <section id="video" class="page">
+
+        </section>
+
     </main>
     <script src="./public/dist/js/app.js" language="javascript"></script>
 </body>

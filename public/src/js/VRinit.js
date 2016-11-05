@@ -1,7 +1,7 @@
 VR.start = (function () {
   //run all the funcitons for starting the app
   var init = function () {
-    VR.render.init();
+    VR.router.show('#timeline');
   };
 
   return {
