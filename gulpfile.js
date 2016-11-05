@@ -139,6 +139,7 @@ gulp.task('styles', function () {
   return gulp.src([
       './public/src/style/style.scss',
       './public/src/style/fonts.scss',
+      './public/src/style/landingpage.scss',
       './public/src/style/loading.scss',
       './public/src/style/video.scss',
       './public/src/style/timeline.scss'
