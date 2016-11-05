@@ -7,8 +7,9 @@ VR.render = (function () { //funtion to render a template.
 
   function _getData() {
     let videoList = VR.get.one('.video-list');
-    VR.get.data('//localhost:7000/data/data.json').then(response => {
-    videoList.appendChild(_generateTimeline(JSON.parse(response)));
+    let url = VR.get.urls('/data.json').dataUrl;
+    VR.get.data(url).then(response => {
+      videoList.appendChild(_generateTimeline(JSON.parse(response)));
     });
   }
 
@@ -24,12 +25,27 @@ VR.render = (function () { //funtion to render a template.
       console.log(date);
       li.appendChild(title);
       li.appendChild(date);
+      console.log(_createVideoElement(obj.thumbnail));
 
       videoList.appendChild(li); //add it to the ul
     });
     return videoList;
   }
 
+  function _createVideoElement(tumbUrl, title, description) {
+    let video = '<div class="video-wrapper">';
+    video += '<img class="thumbnail" src="//localhost:8000' + tumbUrl + '">';
+    video += '  <div class="media-caption">';
+    video += '  <div class="caption-content">';
+    video += '  <h2>' + title + '/h2>';
+    video += '  <span>' + description + '</span>';
+    video += '  </div>';
+    video += '    </div>';
+    video += '  <div class="video-play">';
+    video += '  </div>';
+    video += '</div>';
+    return video;
+  }
   // show or hide the loading spinner
   function loading(show) {
     let delayTime = 300;
