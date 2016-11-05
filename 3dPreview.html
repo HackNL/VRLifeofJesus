@@ -38,6 +38,19 @@
     <meta name="msapplication-TileImage" content="/favicon-144.png">
     <meta name="msapplication-config" content="/browserconfig.xml">
     <title>VR live of Jesus</title>
+<style>
+      body {
+        margin: 0px;
+        overflow: hidden;
+      }
+#timeline3D {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+</style>
 </head>
 
 <body>
@@ -50,12 +63,17 @@
         <div class="warning disabled animate" role="alert" id="error-popup">
             <span id="error-popup-content"></span>
         </div>
+
+    <section>
+    <div id="timeline3D">
+    </div>
+    </section>
     </main>
     <script src="js/lib/three.js"></script>
     <script src="js/lib/StereoEffect.js"></script>
     <script src="js/lib/DeviceOrientationControls.js"></script>
     <script src="js/lib/OrbitControls.js"></script>
-    <script src="js/app.js" language="javascript"></script>
+    <script src="js/3d.js" language="javascript"></script>
 </body>
 
 </html>
