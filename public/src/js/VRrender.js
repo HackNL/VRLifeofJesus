@@ -1,20 +1,24 @@
 VR.render = (function () { //funtion to render a template.
   var width = 0,
     videoSize = 500;
-
+  var timelineData = {};
   //render the template
   function init() {
+    // r._getData();
     _getData();
-    _dragScroll();
   }
+
 
   function _getData() {
     let videoList = VR.get.one('.video-list');
     let url = VR.get.urls('data.json').dataUrl;
 
     VR.get.data(url).then(response => {
-      videoList.appendChild(_generateTimeline(JSON.parse(response)));
+      var parsed = JSON.parse(response);
+      timelineData = parsed;
+      videoList.appendChild(_generateTimeline(parsed));
     });
+
 
     // console.log(document.getElementsByClassName('.video-list')[0]);
 
@@ -96,9 +100,17 @@ VR.render = (function () { //funtion to render a template.
       videoElement.style.display = 'block';
 
       document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
-    })
+    }) <<
+    << << < HEAD
     // }
   return {
     init: init
-  };
+  }; ===
+  === =
+  // }
+  return {
+    init: init,
+    timelineData: timelineData
+  }; >>>
+  >>> > master
 })();
