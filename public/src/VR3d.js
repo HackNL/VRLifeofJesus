@@ -1,6 +1,12 @@
 //To easily select something from the DOM
 VR.V3d = (function () {
+  var effect, video, image, imageContext,texture;
+
   function init() {
+    console.log("initializing VR.V3d...");
+    document.getElementsByTagName("body")[0].style.overflow="hidden";
+
+
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.001, 700);
     camera.position.set(0, 1.6, 0);
@@ -11,7 +17,7 @@ VR.V3d = (function () {
     container = document.getElementById('timeline3D');
     container.appendChild(element);
 
-    effect = new THREE.StereoEffect(renderer);
+    
 
     controls = new THREE.OrbitControls(camera, element);
     controls.target.set(
@@ -48,11 +54,55 @@ VR.V3d = (function () {
     scene.add(floor);
     clock = new THREE.Clock();
 
-    generateTimeline(camera);
+    var raycaster = new THREE.Raycaster(); // create once
+    var mouse = new THREE.Vector2(); // create once
+    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
+    function onDocumentMouseDown( event ) 
+    {
+      event.preventDefault();
+ 
+ 
+      mouse.x = ( event.clientX / renderer.domElement.width ) * 2 - 1;
+      mouse.y = - ( event.clientY / renderer.domElement.height ) * 2 + 1;
+
+      raycaster.setFromCamera( mouse, camera );
+
+      var intersects = raycaster.intersectObjects( scene.children, true );
+      if ( intersects.length > 0 && intersects[0].object.data)//checks if there is any media data from the timeline associated to this object. 
+      {
+		    var object3d =  intersects[ 0 ].object;
+
+		        position = {z: -1};
+		    new createjs.Tween(object3d.position)
+		        .to(position, 800);
+				showVideo(intersects[ 0 ].object);
+
+      }
+    }
+
+    generateTimeline(camera);
     animate();
   }
-  init()
+
+  function enableVR()
+  {
+    console.log("enabling VR");
+  	effect = new THREE.StereoEffect(renderer);
+  }
+
+  function disableVR()
+  {
+    console.log("disabling VR");
+  	effect = null;
+  }
+
+  function toggleVR()
+  {
+    console.log("toggling VR");
+  	if (effect) disableVR();
+  	else enableVR();
+  }
 
   function animate() {
     var elapsedSeconds = clock.getElapsedTime();
@@ -73,15 +123,21 @@ VR.V3d = (function () {
     placeholder.position.set(0, camera.position.y, 0);
 
     var geometry = new THREE.PlaneBufferGeometry(1.6, .9);
-    var media = new THREE.Mesh(geometry);
+    var media  = new THREE.Mesh(geometry);
     media.name = "mediaPlane";
-    //media.rotation.set(Math.PI,0,0)
+    //temporary media data. should be read from data.json
+    media.data ={"video2": {
+            "filename": "video2.mp4",
+            "thumbnail": "video2.jpg",
+            "timestamp": 55,
+            "datealias": "2016/11/15",
+            "title": "Video2",
+            "description": "This is video2"
+        }};
 
     media.position.set(0, 0, -2);
     placeholder.add(media);
-
   }
-
 
   function resize() {
     var width = container.offsetWidth;
@@ -91,7 +147,7 @@ VR.V3d = (function () {
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);
-    effect.setSize(width, height);
+    if (effect) effect.setSize(width, height);
   }
 
   function update(dt) {
@@ -103,7 +159,12 @@ VR.V3d = (function () {
   }
 
   function render(dt) {
-    effect.render(scene, camera);
+    if ( video && video.readyState === video.HAVE_ENOUGH_DATA ) {
+      imageContext.drawImage( video, 0, 0 );
+      if ( texture ) texture.needsUpdate = true;
+    }
+    if (effect) effect.render(scene, camera);
+    else renderer.render(scene, camera);
   }
 
   function fullscreen() {
@@ -117,8 +178,26 @@ VR.V3d = (function () {
       container.webkitRequestFullscreen();
     }
   }
+
+  function showVideo(mesh)
+  {
+    video = document.getElementById('cardboardOffscreenVideo');
+    image = document.getElementById('cardboardOffscreenCanvas');
+    imageContext = image.getContext( '2d' );
+    texture = new THREE.Texture( image );
+		texture.offset.y=0.3; //scale the texture by the amount in percentage of blackspace under the video because the video is scaled 
+		texture.repeat.y=0.7;
+    var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
+    mesh.material=material;
+    video.source="media/video/"+mesh.data.filename;
+    video.play();
+  }
   return {
-    init: init
+    init: init,
+    showVideo: showVideo,
+    enableVR: enableVR,
+    disableVR: disableVR,
+    toggleVR: toggleVR
   }
 
 })();

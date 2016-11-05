@@ -69,6 +69,11 @@
         <section id="cardboard" class="page">
             <div id="timeline3D">
             </div>
+            <video id="cardboardOffscreenVideo" webkit-playsinline style="display:none">
+            <source src="media/video/alive.mp4" type='video/mp4'>
+            </video>
+            <canvas id="cardboardOffscreenCanvas" width=1024 height=1024 style="display:none"></canvas>
+            <div style="position:absolute;right:20px;bottom:20px;" onclick="VR.V3d.toggleVR();"><img src="media/gui/cardboardIcon.png"></div>
         </section>
         <section id="timeline" class="page">
             <article class="video-list">
@@ -106,6 +111,7 @@
     <script src="./public/src/lib/StereoEffect.js"></script>
     <script src="./public/src/lib/DeviceOrientationControls.js"></script>
     <script src="./public/src/lib/OrbitControls.js"></script>
+    <script src="./public/src/lib/tweenjs-0.6.2.combined.js"></script>
     <script src="./public/dist/js/app.js"></script>
     <script src="./public/src/VR3d.js"></script>
     <script src="./public/src/js/VRinit.js"></script>
