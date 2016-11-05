@@ -3,4 +3,5 @@
 npm-debug.log
 
 /.idea
-/public/dist
+
+public/dist/

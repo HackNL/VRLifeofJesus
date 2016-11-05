@@ -114,6 +114,7 @@ VR.timeline = (function () { //funtion to render a template.
       var selectedVideoId = e.target.dataset.videoId;
       var selectedVideo = getVideo(selectedVideoId);
       // Play the video
+
       console.log('Play te video');
 
       var metaVideoElement = document.getElementById('meta-video');
