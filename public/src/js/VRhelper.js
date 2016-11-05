@@ -40,7 +40,8 @@ VR.get = (function () {
       //if the request is done
       request.onload = function () {
         //ony if request is done
-        if (request.status == 200) {
+        let statusCode = 200;
+        if (request.status == statusCode) {
           loading(false);
 
           // send text form request
