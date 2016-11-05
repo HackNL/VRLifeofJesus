@@ -1,6 +1,5 @@
 VR.timeline = (function () { //funtion to render a template.
   //render the template
-  let _videos;
   let _selectedVideoId,
     timelineData = {};
 
@@ -17,22 +16,26 @@ VR.timeline = (function () { //funtion to render a template.
     VR.get.data(url).then(response => {
       var parsed = JSON.parse(response);
       timelineData = parsed;
-      videoList.appendChild(_generateTimeline(parsed));
+
+      return _generateTimeline(parsed);
+    }).then(ul => {
+      videoList.appendChild(ul);
+      clickVideo();
     });
+
   }
 
   function _generateTimeline(data) {
     let videoList = document.createElement('ul');
 
-    data.videos.forEach(function (obj) {
-      var videoId = Object.keys(obj)[0];
+    data.videos.forEach(function (movieObj) {
+      var videoId = movieObj;
 
-      let element = _createVideoElement(obj.thumbnail, obj.title, obj.description, videoId);
+      let element = _createVideoElement(movieObj.thumbnail, movieObj.title, movieObj.description, movieObj.id);
       // console.log(obj);
       videoList.innerHTML += element; //add it to the ul
     });
     return videoList;
-
   }
 
   function _createVideoElement(tumbUrl, title, description, videoId) {
@@ -59,11 +62,13 @@ VR.timeline = (function () { //funtion to render a template.
   }
 
   function clickVideo() {
-    VR.get.one('.video-list ul').addEventListener('click', function (e) {
-      if (e.target.className == "video-play") {
+
+    document.querySelector('.video-list ul').addEventListener('click', function (e) {
+
+      if (e.target.className === "video-play") {
 
         _selectedVideoId = e.target.dataset.videoId;
-        console.log(_selectedVideoId);
+
         var selectedVideo = getVideo(_selectedVideoId);
         console.log(selectedVideo);
         selectedVideo.id = _selectedVideoId;
@@ -107,13 +112,12 @@ VR.timeline = (function () { //funtion to render a template.
   function clickMetaVideo() {
     VR.get.one('#meta-video-play').addEventListener('click', function (e) {
       var selectedVideoId = e.target.dataset.videoId;
-      var selectedVideo = getVideo(selectedVideoId)[selectedVideoId];
-
+      var selectedVideo = getVideo(selectedVideoId);
       // Play the video
       console.log('Play te video');
-      console.log(selectedVideo);
+
       var metaVideoElement = document.getElementById('meta-video');
-      metaVideoElement.src = 'media/video/' + selectedVideo;
+      metaVideoElement.src = 'media/video/' + selectedVideo.filename;
       metaVideoElement.style.display = 'block';
       document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'none';
     });
@@ -124,9 +128,9 @@ VR.timeline = (function () { //funtion to render a template.
     VR.get.one('.close').addEventListener('click', function (e) {
       VR.router.show('#timeline');
       var videoElement = document.getElementById('meta-video');
-      console.log('check')
+
       console.log(videoElement.pause())
-      console.log(videoElement)
+
       videoElement.pause();
       videoElement.currentTime = 0;
     });
@@ -155,14 +159,15 @@ VR.timeline = (function () { //funtion to render a template.
    * @return     obj  The video.
    */
   function getVideo(videoId) {
-    var selectedVideo;
-    console.log(_videos);
-    _videos.videos.some(function (elm, index) {
-      if (elm[videoId]) {
-        selectedVideo = elm;
+    var videoObj;
+    timelineData.videos.some(function (elm, index) {
+      if (elm.id === videoId) {
+        videoObj = elm;
+        return true;
       }
-    })
-    return selectedVideo;
+    });
+    return videoObj;
+
   }
 
 
