@@ -1,0 +1,17 @@
+====FONTS=====
+Titles, Headers: Montserrat Medium
+Regular Text: Open Sans
+
+====COLOR====
+Montserrat should always be White
+Open sans should always be White
+
+COLORS:
+Background for Video Play in 2D: Always Black.
+
+TIMELINE:
+#F0F082
+#8CF08C
+#8CF0F0
+#8CA0FF
+#F05050
