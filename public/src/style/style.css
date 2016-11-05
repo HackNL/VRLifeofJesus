@@ -12,8 +12,12 @@ h1 {
 
 h2{
   font-family: 'Montserrat', sans-serif;
-  text-align: left;
+  text-align: center;
   color:#FFFFFF
+}
+
+#vrmode {
+  text-align: left;
 }
 
 li {
