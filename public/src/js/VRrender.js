@@ -44,17 +44,11 @@ VR.render = (function () { //funtion to render a template.
   };
 
   document.getElementsByClassName('video-play')[0].addEventListener('click', function(){
-  	console.log();
   	var videoElement = document.getElementsByTagName('video')[0];
   	videoElement.src = 'media/video/' + this.dataset.filename;
   	videoElement.style.display = 'block';
 
   	document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
-
-
-
-
-  	// var fileName = e.srcElement.attributes
   })
 
   }
