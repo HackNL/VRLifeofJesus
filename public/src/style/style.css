@@ -7,6 +7,37 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   display: none;
 }
 
+/* Font faces */
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('fonts/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url('fonts/OpenSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url('fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('fonts/OpenSans-Light.ttf');
+}
+
+
+
+h1, h2, h3, h4, h5, h6, p, span, ul, li{
+	font-family:'Montserrat-Regular', sans-serif;
+}
 .video-wrapper{
 	width: 50%;
 	position: relative;
@@ -41,7 +72,6 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     height: 40px;
     width: 65px;    
     background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
     position: relative;
     position: absolute;
     top: 50%;
@@ -65,4 +95,9 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     border-style: solid;
     border-width: 9.5px 0 9.5px 17px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+}
+
+.caption-content{
+	margin-left: 1em;
+	margin-right: 1em;
 }
