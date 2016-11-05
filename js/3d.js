@@ -8,7 +8,7 @@ function init()
 
 	renderer = new THREE.WebGLRenderer();
 	element = renderer.domElement;
-	container = document.getElementById('webglviewer');
+	container = document.getElementById('timeline3D');
 	container.appendChild(element);
 
 	effect = new THREE.StereoEffect(renderer);
@@ -45,8 +45,44 @@ function init()
 
 	var geometry = new THREE.PlaneBufferGeometry(1000, 1000);
 
-	var floor = new THREE.Mesh(geometry, floorMaterial);
+	var floor = new THREE.Mesh(geometry);
 	floor.rotation.x = -Math.PI / 2;
 	scene.add(floor);
 }
 init()
+
+
+ function resize() {
+    var width = container.offsetWidth;
+    var height = container.offsetHeight;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(width, height);
+    effect.setSize(width, height);
+  }
+
+  function update(dt) {
+    resize();
+
+    camera.updateProjectionMatrix();
+
+    controls.update(dt);
+  }
+
+  function render(dt) {
+    effect.render(scene, camera);
+  }
+
+  function fullscreen() {
+    if (container.requestFullscreen) {
+      container.requestFullscreen();
+    } else if (container.msRequestFullscreen) {
+      container.msRequestFullscreen();
+    } else if (container.mozRequestFullScreen) {
+      container.mozRequestFullScreen();
+    } else if (container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    }
+  }
