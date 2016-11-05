@@ -52,7 +52,7 @@ VR.V3d = (function () {
 
     animate();
   }
-  init()
+  // init()
 
   function animate() {
     var elapsedSeconds = clock.getElapsedTime();

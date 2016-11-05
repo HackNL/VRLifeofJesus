@@ -1,85 +1,60 @@
 .loading {
-  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
   height: 2em;
+  z-index: 100;
+  background: #8CF08C;
+  height: 100%;
 }
 
-.cssload-container {
-  display: block;
-  margin: 0.6em auto;
-  width: 97px;
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: auto auto;
 }
 
-.cssload-loading {
-  width: 29px;
-  height: 29px;
-}
-/*source http://cssload.net/en/3d-loaders*/
-.cssload-loading i {
-  width: 29px;
-  height: 29px;
-  display: inline-block;
-  background: RGB(255, 255, 255);
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
   position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
 }
 
-.cssload-loading i:nth-child(1) {
-  transform: translate(-49px, 0);
-  -o-transform: translate(-49px, 0);
-  -ms-transform: translate(-49px, 0);
-  -webkit-transform: translate(-49px, 0);
-  -moz-transform: translate(-49px, 0);
-  animation: cssload-loading-ani1 1.15s linear infinite;
-  -o-animation: cssload-loading-ani1 1.15s linear infinite;
-  -ms-animation: cssload-loading-ani1 1.15s linear infinite;
-  -webkit-animation: cssload-loading-ani1 1.15s linear infinite;
-  -moz-animation: cssload-loading-ani1 1.15s linear infinite;
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
 }
-
-.cssload-loading i:nth-child(2) {
-  background: #78C278;
-  transform: translate(49px, 0);
-  -o-transform: translate(49px, 0);
-  -ms-transform: translate(49px, 0);
-  -webkit-transform: translate(49px, 0);
-  -moz-transform: translate(49px, 0);
-  animation: cssload-loading-ani2 1.15s linear infinite;
-  -o-animation: cssload-loading-ani2 1.15s linear infinite;
-  -ms-animation: cssload-loading-ani2 1.15s linear infinite;
-  -webkit-animation: cssload-loading-ani2 1.15s linear infinite;
-  -moz-animation: cssload-loading-ani2 1.15s linear infinite;
-}
-@keyframes cssload-loading-ani1 {
-  25% {
-    z-index: 2;
+@-webkit-keyframes sk-bounce {
+  0%,
+  100% {
+    -webkit-transform: scale(0.0);
   }
 
   50% {
-    transform: translate(49px, 0) scale(1);
-  }
-
-  75% {
-    transform: translate(0, 0) scale(0.75);
-  }
-
-  100% {
-    transform: translate(-49px, 0) scale(1);
+    -webkit-transform: scale(1.0);
   }
 }
-@keyframes cssload-loading-ani2 {
-  25% {
-    transform: translate(0, 0) scale(0.75);
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
   }
 
   50% {
-    transform: translate(-49px, 0) scale(1);
-  }
-
-  75% {
-    z-index: 2;
-  }
-
-  100% {
-    transform: translate(49px, 0) scale(1);
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
   }
 }

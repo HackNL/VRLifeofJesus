@@ -1,20 +1,46 @@
 VR.landing = (function () {
   function init(id) {
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    var colors = ['#F0F082',
-      '#8CF08C',
-      '#8CF0F0',
-      '#8CA0FF',
-      '#F05050',
-    ];
-    var body = document.querySelector('body');
 
-    var number = getRandomInt(0, 4);
-    body.style.backgroundColor = colors[number];
-    VR.get.loading(false);
     _button();
+    background();
+    VR.get.loading(false);
+  }
+
+  function background() {
+    var lFollowX = 0,
+      lFollowY = 0,
+      x = 0,
+      y = 0,
+      friction = 1 / 30;
+
+    function moveBackground() {
+      x += (lFollowX - x) * friction;
+      y += (lFollowY - y) * friction;
+
+      let translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+
+      var background = VR.get.one('.bg');
+
+      // background.style['-webit-transform'] = translate;
+      // background.style['-moz-transform'] = translate;
+      background.style.webkitTransform = translate;
+      background.style.MozTransform = translate;
+      background.style.msTransform = translate;
+      background.style.OTransform = translate;
+      background.style.transform = translate;
+
+      window.requestAnimationFrame(moveBackground);
+    }
+
+    window.addEventListener('mouseover', function (e) {
+
+      var lMouseX = Math.max(-100, Math.min(100, screen.width / 2 - e.clientX));
+      var lMouseY = Math.max(-100, Math.min(100, screen.height / 2 - e.clientY));
+      lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+      lFollowY = (10 * lMouseY) / 100;
+
+    });
+    moveBackground();
   }
 
   function _button() {

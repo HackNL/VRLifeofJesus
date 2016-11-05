@@ -47,23 +47,28 @@
 <body>
     <main>
         <section class="loading">
-            <div class="cssload-container">
-                <div class="cssload-loading">
-                    <i></i>
-                    <i></i>
-                </div>
-            </div>
+          <div class="spinner">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>
         </section>
         <section class="warning disabled animate" role="alert" id="error-popup">
             <span id="error-popup-content"></span>
         </section>
 
         <section id="landing" class="page">
-            <h1>The Life of Jesus</h1>
-            <h2>Experience the Life of Jesus trough a timeline of clips, augumented reality & VR</h2>
+            <div class="wrap">
+                <div class="bg"></div>
+                <div class="card">
+                    <h1>The Life of Jesus</h1>
+                    <p>Experience the Life of Jesus trough a timeline of clips in augumented reality & VR</p>
 
-            <button id="landingbutton" name="button">Enter Now</button>
-            <button onclick="VR.router.show('#cardboard')" name="button">VR</button>
+                    <div class="buttons">
+                        <button id="landingbutton" name="button">Enter Now</button>
+                        <button onclick="VR.router.show('#cardboard')" name="button">VR</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="cardboard" class="page">
