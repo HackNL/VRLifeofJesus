@@ -1,0 +1,36 @@
+.video-list {
+  overflow: auto;
+  overflow-y: hidden;
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 1em;
+  }
+}
+
+.video-date-label {
+  padding: 10px 15px;
+  position: absolute;
+  top: 230px;
+  background: rgba(0, 0, 0, 0.51);
+  color: white;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 50%;
+}
+
+#timeline {
+  background-color: #000;
+  height: 3px;
+  width: 100%;
+}

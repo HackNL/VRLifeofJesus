@@ -1,0 +1,50 @@
+<html>
+      <head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="public/src/style/style.css">
+      </head>
+
+<body>
+<div id="landing">
+  <div id="landingheader">
+  <h1>Entering VR</h1>
+  <br>
+
+
+</div>
+<div id="landingVR">
+<ul>
+  <h2 id="vrmode"><li>Get your Google Cardboard</li></h2>
+  <h2 id="vrmode"><li>Turn your phone into Portrait</li></h2>
+  <h2 id="vrmode"><li>Enjoy</li></h2>
+</ul>
+<br>
+<br>
+<a id="landingbutton" href="index.html" name="button">Enter Now</a>
+
+</div>
+
+</div>
+<script type="text/javascript">
+function getRandomInt(min, max) {
+return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var colors = ['#F0F082',
+'#8CF08C' ,
+'#8CF0F0' ,
+'#8CA0FF' ,
+'#F05050' ,];
+var body = document.querySelector('body');
+console.log(body)
+var number = getRandomInt(0,4);
+body.style.backgroundColor = colors[number];
+console.log(colors[number]);
+
+</script>
+</body>
+
+
+
+
+
+</html>

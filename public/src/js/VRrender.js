@@ -76,7 +76,6 @@ VR.render = (function () { //funtion to render a template.
     })
 // }
     return {
-        init: init,
-        loading: loading
+        init: init
     };
 })();

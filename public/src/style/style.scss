@@ -1,152 +1,79 @@
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, span, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
+body,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
+section,
+span,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+ul,
+var,
+video {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
 .disabled {
-  display: none;
-}
-
-/* Font faces */
-@font-face {
-  font-family: 'Montserrat-Bold';
-  src: url('fonts/Montserrat-Bold.ttf');
-}
-
-@font-face {
-  font-family: 'Montserrat-Regular';
-  src: url('fonts/Montserrat-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'OpenSans-Bold';
-  src: url('fonts/OpenSans-Bold.ttf');
-}
-
-@font-face {
-  font-family: 'OpenSans-Regular';
-  src: url('fonts/OpenSans-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'OpenSans-Light';
-  src: url('fonts/OpenSans-Light.ttf');
-}
-
-h1, h2, h3, h4, h5, h6, p, span, ul, li {
-  font-family: 'Montserrat-Regular', sans-serif;
-}
-
-.video-list {
-  margin: 160px 100px 0px 100px;
-}
-
-.video-wrapper {
-  width: 300px;
-  display: inline-block;
-  position: relative;
-  margin: 50px 100px 100px;
-}
-
-.video-wrapper:after {
-  content: '';
-  width: 2px;
-  height: 105px;
-  background-color: #000;
-  position: absolute;
-  display: block;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 50%;
-  top: 221px;
-}
-
-.thumbnail {
-  max-width: none;
-  width: 100%;
-  display: block;
-}
-
-.media-caption {
-  color: #F5F5F5;
-  margin: 0;
-  border: 0px none;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8.25em 0 1em;
-  font-size: .888889em;
-  line-height: 1.625em;
-  background: rgba(0, 0, 0, 0.6);
-  background: -webkit-linear-gradient(top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 100%);
-  background: -moz-linear-gradient(top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 100%);
-  background: -o-linear-gradient(top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 100%);
-  background: -ms-linear-gradient(top, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 100%);
-  background: linear-gradient(to bottom, rgba(33, 33, 33, 0) 0%, rgba(33, 33, 33, 0.7) 100%);
-}
-
-.video-play {
-  height: 40px;
-  width: 65px;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: relative;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -40px;
-  margin-top: -40px;
-  transition: all 0.3s ease;
-}
-
-.video-play:hover {
-  background-color: rgba(0, 173, 239, 0.9);
-}
-
-.video-play:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10.5px;
-  left: 24px;
-  margin: 0 auto;
-  border-style: solid;
-  border-width: 9.5px 0 9.5px 17px;
-  border-color: transparent transparent transparent rgba(255, 255, 255, 1);
-}
-
-.video-date-label {
-  padding: 10px 15px;
-  position: absolute;
-  top: 230px;
-  background: rgba(0, 0, 0, 0.51);
-  color: white;
-  position: absolute;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 50%;
-}
-
-.caption-content {
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
-video {
-  width: 100%;
-}
-
-#timeline {
-  background-color: #000;
-  height: 3px;
-  width: 100%;
+  display: none !important;
 }
 
 #timewarp {
