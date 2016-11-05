@@ -15,7 +15,8 @@ VR.date = (function () {
     return day + ' ' + date + ' ' + month + ' ' + year;
   }
 
+
   return { //return only the funtions that are nesseeriy
-    readableDate: readableDate,
+    readableDate: readableDate
   };
 })();

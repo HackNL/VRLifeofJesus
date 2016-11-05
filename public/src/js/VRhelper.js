@@ -1,7 +1,9 @@
 //To easily select something from the DOM
 VR.get = (function () {
   function urls(url) {
+
     let base = '/VRLifeofJesus/';
+    // let base = '//localhost:8001/';
     let tumbUrl = base + 'media/thumbnails/' + url;
     let videoUrl = base + 'media/video/' + url;
     let dataUrl = base + 'data/' + url;
@@ -11,7 +13,6 @@ VR.get = (function () {
       tumbUrl: tumbUrl,
       videoUrl: videoUrl,
       dataUrl
-
     };
   }
 
@@ -30,17 +31,17 @@ VR.get = (function () {
       //open an get request
       request.open('GET', url);
       request.onloadstart = function () {
-        VR.render.loading(true);
+        loading(true);
       };
       request.onloadend = function () {
-        VR.render.loading(true);
+        loading(true);
       };
 
       //if the request is done
       request.onload = function () {
         //ony if request is done
         if (request.status == 200) {
-          VR.render.loading(false);
+          loading(false);
 
           // send text form request
           resolve(request.responseText);
@@ -54,11 +55,24 @@ VR.get = (function () {
       request.send();
     });
   }
+  // show or hide the loading spinner
+  function loading(show) {
+    let delayTime = 300;
+    if (show) {
+      VR.get.one('.loading').classList.remove('disabled');
+    } else {
+      //show loading
+      setTimeout(function () {
+        VR.get.one('.loading').classList.add('disabled');
+      }, delayTime); //add a delay because you won't see it with fast internet.
+    }
+  }
 
   return { //return only the funtions that are nesseeriy
     urls: urls,
     one: one,
     all: all,
-    data: data
+    data: data,
+    loading: loading
   };
 })();

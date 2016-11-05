@@ -1,0 +1,22 @@
+.filling-line {
+  width: 100%;
+  border-bottom: solid rgb(210, 73, 58) 1px;
+  height: 1em;
+  margin: 1em;
+}
+
+.video-list {
+  overflow: auto;
+  overflow-y: hidden;
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 1em;
+  }
+}
