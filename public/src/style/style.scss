@@ -1,3 +1,5 @@
+//rest the html style
+
 abbr,
 address,
 article,
@@ -71,14 +73,17 @@ video {
   padding: 0;
   border: 0;
 }
-html, body {
+
+body,
+html {
   height: 100%;
 }
 
-body{
+body {
   display: block;
-    position: relative;
+  position: relative;
 }
+
 .disabled {
   display: none !important;
 }
@@ -89,12 +94,12 @@ body{
   left: 0;
   bottom: 0;
   right: 0;
-
   background-position: 100% 0;
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-size: cover;
 }
+//the 3D sene
 
 #timeline3D {
   bottom: 0;
@@ -102,4 +107,22 @@ body{
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: none;
+  text-align: center;
+  background-color: transparent;
+  border: solid 2px #000;
+  color: #000;
+  font-size: 100%;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
 }

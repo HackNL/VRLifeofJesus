@@ -12,7 +12,7 @@ li {
 ul {
   margin-bottom: 0.35em;
 }
-
+//the landing page with the parlax background
 #landing {
   .wrap {
     display: flex;
@@ -30,7 +30,7 @@ ul {
     left: 0;
     transform: scale(1.1);
     z-index: -1;
-    background: url('../../../media/images/background.jpeg') no-repeat center center;
+    background: url('../../../media/images/background.jpeg') no-repeat center center; //the backgrount image
     background-size: cover;
   }
 
@@ -67,27 +67,6 @@ ul {
       text-align: center;
       color: #000;
     }
-  }
-
-  button {
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
-    display: inline-block;
-    flex-grow: 0;
-    padding: 0.5em 1em;
-    border: none;
-    text-align: center;
-    background-color: transparent;
-    border: solid 2px #000;
-    color: #000;
-    font-size: 100%;
-    font-weight: 400;
-    font-weight: 400;
-    line-height: 1.45;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    z-index: 1;
   }
 }
 
