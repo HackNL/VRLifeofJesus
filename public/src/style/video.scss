@@ -89,20 +89,24 @@ video {
 	.video-wrapper:after{
 		display:none;
 	}
+	.video-container{
+		max-width:40em;
+		margin:0 auto;
+	}
 	.video-wrapper, .content-wrapper{
 		margin: 0 auto;
 
 		display:block;
-		width: 66%;
+		width: 100%;
 		text-align: left;
-    box-shadow: 10px 0 10px -4px rgba(0, 0, 0, 0.35), -10px 0 10px -7px rgba(0,0,0,0.35);
+    /*box-shadow: 10px 0 10px -4px rgba(0, 0, 0, 0.35), -10px 0 10px -7px rgba(0,0,0,0.35);*/
 	}
 	.video-wrapper{
 		margin-top: 50px;
 	}
 	.content-wrapper{
-		width: 64%;
-		padding: 40px 1% 40px 1%;
+    width: 94%;
+    padding: 40px 3%;;
 	}
 	h2{
 		padding: 0 0 20px 0;
@@ -159,8 +163,24 @@ video {
 
 }
 
+@media screen and (max-width:768px) and (orientation : landscape) {
+#video{
+	.video-wrapper{
+		float: left;
+		max-width: 60%;
+		display: inline;
+		margin-top: 0;
+	}
+	.content-wrapper{
+		float: left;
+		max-width: 34%;
+		display: inline;
+	}
+}
+}
 
 
+/*
 @media screen and (max-width:770px) {
 	#video{
 		.video-wrapper, .content-wrapper{
@@ -192,4 +212,4 @@ video {
 			}
 		}
 
- }
+ }*/
