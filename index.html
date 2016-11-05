@@ -47,10 +47,10 @@
 <body>
     <main>
         <section class="loading">
-          <div class="spinner">
-  <div class="double-bounce1"></div>
-  <div class="double-bounce2"></div>
-</div>
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
         </section>
         <section class="warning disabled animate" role="alert" id="error-popup">
             <span id="error-popup-content"></span>
@@ -64,23 +64,28 @@
                     <p>Experience the Life of Jesus trough a timeline of clips in augumented reality & VR</p>
 
                     <div class="buttons">
-                        <button id="landingbutton" name="button">Enter Now</button>
-                        <button onclick="VR.router.show('#cardboard')" name="button">VR</button>
+                        <button id="landingbutton" class="btn" name="button">Enter Now</button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- the cardboard -->
         <section id="cardboard" class="page">
+            <button onclick="VR.router.show('#cardboard')" class="btn btn-right"  name="button">VR</button>
             <div id="timeline3D">
             </div>
         </section>
+
+        <!-- the time line -->
         <section id="timeline" class="page">
+            <button onclick="VR.router.show('#cardboard')"  class="btn btn-right" name="button">VR</button>
             <article class="video-list">
                 <span class="filling-line"></span>
             </article>
         </section>
 
+        <!-- the video detail page -->
         <section class="page" id="video">
             <div class="video-wrapper video-meta-wrapper">
                 <div class="thumbnail-wrapper meta-thumbnail-wrapper">
