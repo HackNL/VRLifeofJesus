@@ -3,7 +3,7 @@ function init()
 {
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.001, 700);
-	camera.position.set(0, 15, 0);
+	camera.position.set(0, 1.6, 0);
 	scene.add(camera);
 
 	renderer = new THREE.WebGLRenderer();
@@ -15,9 +15,9 @@ function init()
 
 	controls = new THREE.OrbitControls(camera, element);
 	controls.target.set(
-		camera.position.x + 0.15,
+		camera.position.x ,
 		camera.position.y,
-		camera.position.z
+		camera.position.z- 0.15
 	);
 	controls.noPan = true;
 	controls.noZoom = true;
@@ -48,6 +48,9 @@ function init()
 	floor.rotation.x = -Math.PI / 2;
 	scene.add(floor);
     clock = new THREE.Clock();
+
+    generateTimeline(camera);
+
 	animate();
 }
 init()
@@ -59,6 +62,26 @@ init()
         update(clock.getDelta());
         render(clock.getDelta());
     }
+
+    function generateTimeline(camera) {
+    	var placeholder = new THREE.Object3D();
+    	placeholder.name="placeholder";
+    	var material = new THREE.MeshPhongMaterial({
+    		color: 0x00ff00} );
+
+    	scene.add(placeholder);
+    	placeholder.position.set(0,camera.position.y,0);
+
+		var geometry = new THREE.PlaneBufferGeometry(1.6, .9);
+		var media = new THREE.Mesh(geometry);
+		media.name="mediaPlane";
+		//media.rotation.set(Math.PI,0,0)
+
+		media.position.set(0,0,-2);
+		placeholder.add(media);
+		
+    }
+
 
 	function resize() 
 	{
