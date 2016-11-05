@@ -81,7 +81,7 @@ VR.V3d = (function () {
       }
     }
 
-    generateTimeline(camera);
+    generateCardboardTimeline(camera);
     animate();
   }
   function enableVR()
@@ -111,7 +111,10 @@ VR.V3d = (function () {
     render(clock.getDelta());
   }
 
-  function generateTimeline(camera) {
+  function generateCardboardTimeline(camera) {
+
+    //var videoData = VR.render.timelineData
+    
     var placeholder = new THREE.Object3D();
     placeholder.name = "placeholder";
     var material = new THREE.MeshPhongMaterial({
