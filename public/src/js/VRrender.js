@@ -6,32 +6,40 @@ VR.render = (function () { //funtion to render a template.
   }
 
   function _getData() {
-    VR.get.data('data/data.json').then(response => {
-      _generateTimeline(JSON.parse(response));
+    let videoList = VR.get.one('.video-list');
+    VR.get.data('//localhost:7000/data/data.json').then(response => {
+    videoList.appendChild(_generateTimeline(JSON.parse(response)));
     });
   }
 
   function _generateTimeline(data) {
-    let videoList = VR.get.one('.video-list');
+    let videoList = document.createElement('ul');
     data.videos.forEach(function (obj, index) {
-      console.log(obj);
+      console.log(obj, index);
       let li = document.createElement('li');
-      let title = document.createElement('H1');
+      let title = document.createElement('H2');
+      let date = document.createElement('span');
       title.innerHTML = obj.title;
+      date.innerHTML = VR.date.readableDate(new Date(obj.datealias));
+      console.log(date);
       li.appendChild(title);
-      videoList.appendChild(li)
+      li.appendChild(date);
+
+      videoList.appendChild(li); //add it to the ul
     });
+    return videoList;
   }
 
   // show or hide the loading spinner
   function loading(show) {
+    let delayTime = 300;
     if (show) {
-      VR.get.one('.loading').classList.remove('disabled')
+      VR.get.one('.loading').classList.remove('disabled');
     } else {
       //show loading
       setTimeout(function () {
-        VR.get.one('.loading').classList.add('disabled')
-      }, 300); //add a delay because you won't see it with fast internet.
+        VR.get.one('.loading').classList.add('disabled');
+      }, delayTime); //add a delay because you won't see it with fast internet.
     }
   };
 
@@ -49,6 +57,7 @@ VR.render = (function () { //funtion to render a template.
   	// var fileName = e.srcElement.attributes
   })
 
+  }
   return {
     init: init,
     loading: loading

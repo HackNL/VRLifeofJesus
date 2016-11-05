@@ -31,7 +31,7 @@
     "Sine": true,
     "DP": true,
     "moment": true,
-    "$f": true
+    "VR": true
   },
   "extends": "eslint:recommended"
 }
