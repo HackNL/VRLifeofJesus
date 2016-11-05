@@ -1,16 +1,57 @@
 .video-list {
-  overflow: auto;
+  width: auto;
+  height: 100vh;
+  overflow-x: scroll;
   overflow-y: hidden;
+  white-space: nowrap;
 
   ul {
     display: inline-block;
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
+    min-height: 100vh;
+
+    &::before {
+      content: '';
+      border-bottom: 1px solid #000;
+      height: 1px;
+      width: 100%;
+      z-index: 10;
+      position: absolute;
+      top: 50%;
+    }
   }
 
   li {
     margin: 1em;
+    position: relative;
+    display: inline-block;
+  }
+
+  li::before {
+    content: '';
+    width: 1px;
+    height: 5.5em;
+    border-left: 1px solid #000;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 50%;
+  }
+
+  li::after {
+    content: '';
+    width: 1em;
+    height: 1em;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    bottom: -0.5em;
+    left: 48.9%;
+    backdrop-filter: blur(10px);
   }
 }
 
@@ -30,6 +71,7 @@
   height: 3px;
   width: 100%;
 }
+//the button to switch between the states
 
 .btn-right {
   position: absolute;

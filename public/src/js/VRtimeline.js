@@ -96,8 +96,8 @@ VR.timeline = (function () { //funtion to render a template.
   }
 
 
-  function clickCloseMeta(){
-  	VR.get.one('.close').addEventListener('click', function (e) {
+  function clickCloseMeta() {
+    VR.get.one('.close').addEventListener('click', function (e) {
       VR.router.show('#timeline');
       var videoElement = document.getElementById('meta-video');
       console.log('check')

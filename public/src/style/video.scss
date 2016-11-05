@@ -1,34 +1,20 @@
 .video-list {
-  margin: 160px 100px 0px 100px;
+  // margin: 160px 100px 0px 100px;
 }
 
 .video-wrapper {
   user-select: none;
-  width: 300px;
+  width: 20em;
   display: inline-block;
   position: relative;
-  margin: 50px 100px 100px;
-}
-
-.video-wrapper:after {
-  content: '';
-  width: 2px;
-  height: 105px;
-  background-color: #000;
-  position: absolute;
-  display: block;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  left: 50%;
-  top: 221px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .05);
+  margin: 5em 10em;
 }
 
 .thumbnail {
   max-width: none;
   width: 100%;
+  height: auto;
   display: block;
 }
 
