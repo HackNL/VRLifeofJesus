@@ -4,13 +4,13 @@ VR.get = (function () {
     let base = '//localhost:7000/';
     let tumbUrl = base + 'media/thumbnails/' + url;
     let videoUrl = base + 'media/video/' + url;
-    let dataUrl = base + 'media/video/' + url;
+    let dataUrl = base + 'data/' + url;
 
     return {
       base: base,
       tumbUrl: tumbUrl,
       videoUrl: videoUrl,
-      dataUrl: dataUrl
+      dataUrl
 
     };
   }
