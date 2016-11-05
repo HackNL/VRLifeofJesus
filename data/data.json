@@ -1,18 +1,36 @@
 {
 	"videos" : [
 		{
-			"filename" : "filename1",
+			"filename" : "video1.mp4",
+			"thumbnail": "video1.jpg",
 			"timestamp" : 30,
 			"datealias" : "4-11-2016",
-			"title" : "title1",
-			"description" : "description1"
+			"title" : "Video1",
+			"description" : "This is video1"
 		},
 		{
-			"filename" : "filename1",
-			"timestamp" : 30,
-			"datealias" : "4-11-2016",
-			"title" : "title2",
-			"description" : "description2"
+			"filename" : "video2.mp4",
+			"thumbnail": "video2.jpg",
+			"timestamp" : 55,
+			"datealias" : "18-11-2016",
+			"title" : "Video2",
+			"description" : "This is video2"
+		},
+		{
+			"filename" : "video3.mp4",
+			"thumbnail": "video3.jpg",
+			"timestamp" : 78,
+			"datealias" : "12-12-2016",
+			"title" : "Video3",
+			"description" : "This is video3"
+		},
+		{
+			"filename" : "video4.mp4",
+			"thumbnail": "video4.jpg",
+			"timestamp" : 95,
+			"datealias" : "31-12-2016",
+			"title" : "Video4",
+			"description" : "This is video4"
 		}
 	]
 }
