@@ -60,7 +60,7 @@ VR.render = (function () { //funtion to render a template.
 
     document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
   })
-}
+// }
 return {
   init: init,
   loading: loading
