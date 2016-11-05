@@ -142,6 +142,7 @@ gulp.task('styles', function () {
       './public/src/style/landingpage.scss',
       './public/src/style/loading.scss',
       './public/src/style/video.scss',
+      './public/src/style/video-meta.scss',
       './public/src/style/timeline.scss'
     ])
     .pipe(sourcemaps.init())
