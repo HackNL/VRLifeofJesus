@@ -2,11 +2,11 @@
 VR.get = (function () {
   function one(selector) { //This is a method
     return document.querySelector(selector);
-  };
+  }
 
   function all(selector) {
     return document.querySelectorAll(selector);
-  };
+  }
 
   function data(url) {
     // return a Promise object
@@ -38,7 +38,7 @@ VR.get = (function () {
       //send the request
       request.send();
     });
-  };
+  }
 
   return { //return only the funtions that are nesseeriy
     one: one,
