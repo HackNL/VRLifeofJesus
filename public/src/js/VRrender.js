@@ -51,9 +51,18 @@ VR.render = (function () { //funtion to render a template.
         VR.get.one('.loading').classList.add('disabled');
       }, delayTime); //add a delay because you won't see it with fast internet.
     }
-  }
-  return {
-    init: init,
-    loading: loading
   };
+
+  document.getElementsByClassName('video-play')[0].addEventListener('click', function () {
+    var videoElement = document.getElementsByTagName('video')[0];
+    videoElement.src = 'media/video/' + this.dataset.filename;
+    videoElement.style.display = 'block';
+
+    document.getElementsByClassName('thumbnail-wrapper')[0].style.display = 'none';
+  })
+}
+return {
+  init: init,
+  loading: loading
+};
 })();

@@ -101,3 +101,7 @@ h1, h2, h3, h4, h5, h6, p, span, ul, li{
 	margin-left: 1em;
 	margin-right: 1em;
 }
+
+video{
+	width: 100%;
+}
