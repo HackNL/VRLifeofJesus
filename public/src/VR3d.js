@@ -15,7 +15,10 @@ VR.V3d = (function () {
     camera.position.set(0, 1.6, 0);
     scene.add(camera);
 
-    renderer = new THREE.WebGLRenderer( { alpha: true , antialias: true });
+    renderer = new THREE.WebGLRenderer( { antialias: true });// alpha: true ,
+    color=document.getElementsByTagName("body")[0].style["background-color"];//"rgb(140, 240, 240)"
+
+    renderer.setClearColor(color, 1);
     element = renderer.domElement;
     container = document.getElementById('timeline3D');
     container.innerHTML = '';
@@ -206,6 +209,9 @@ VR.V3d = (function () {
 
   function showVideo(mesh)
   {
+  	mesh.oldMaterial=mesh.material;
+
+
   	//move video forward
     position = {z: -1,y:0};
     new createjs.Tween(mesh.position)
@@ -234,6 +240,7 @@ VR.V3d = (function () {
 			//find the only child
 				mesh=child.children[0];
 				new createjs.Tween(mesh.position).to({x:mesh.originalPosition.x, y:mesh.originalPosition.y, z: mesh.originalPosition.z}, 400);
+				if (mesh.oldMaterial) mesh.material=mesh.oldMaterial;
 			}
 
 
