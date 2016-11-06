@@ -93,20 +93,6 @@ VR.timeline = (function () { //funtion to render a template.
     });
   }
 
-
-  //
-  //   window.addEventListener('mousedown', function (e) {
-  //
-  //     curDown = true;
-  //     curYPos = e.pageY;
-  //     curXPos = e.pageX;
-  //   });
-  //
-  //   window.addEventListener('mouseup', function (e) {
-  //     curDown = false;
-  //   });
-  // }
-
   function clickMetaVideo() {
     VR.get.one('#meta-btn-play').addEventListener('click', function (e) {
       var selectedVideoId = e.target.dataset.videoId;
@@ -114,8 +100,8 @@ VR.timeline = (function () { //funtion to render a template.
       // Play the video
 
       console.log('Play te video');
-
       var metaVideoElement = document.getElementById('meta-video');
+      console.log(selectedVideo.filename);
       metaVideoElement.src = 'media/video/' + selectedVideo.filename;
       metaVideoElement.style.display = 'block';
       document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'none';
@@ -123,13 +109,14 @@ VR.timeline = (function () { //funtion to render a template.
   }
 
   function clickCloseMeta() {
-    VR.get.one('.btn-close').addEventListener('click', function (e) {
+    VR.get.one('.btn-close').addEventListener('click', function () {
 
-      // var videoElement = document.getElementById('meta-video');
-      //
-      // videoElement.pause();
-      // videoElement.currentTime = 0;
-      // videoElement.src = '';
+      var videoElement = document.getElementById('meta-video');
+      document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'block';
+      videoElement.pause();
+      videoElement.currentTime = 0;
+      videoElement.src = '';
+
       _getData();
       VR.router.show('#timeline');
     });
