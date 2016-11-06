@@ -21,27 +21,30 @@ VR.timeline = (function () { //funtion to render a template.
     }).then(ul => {
       videoList.appendChild(ul);
       clickVideo();
+      addScrollListeners();
     });
   }
 
   function _generateTimeline(data) {
 
     let videoList = document.createElement('ul');
-
-    data.videos.forEach(function (movieObj) {
+    let abosuleLeft;
+    data.videos.forEach(function (movieObj, index) {
       // console.log(movieObj);
-      let element = _createVideoElement(movieObj);
+      let postion = (VR.get.isOdd(index) === 1) ? 'bottom' : 'top';
+      abosuleLeft = (index === 0) ? 0 : abosuleLeft + 80;
+      let element = _createVideoElement(movieObj, postion, abosuleLeft);
       // console.log(obj);
       videoList.innerHTML += element; //add it to the ul
     });
     return videoList;
   }
 
-  function _createVideoElement(movieObj) {
+  function _createVideoElement(movieObj, postion, abosuleLeft) {
     let tumbUrlGenerated = VR.get.urls(movieObj.thumbnail).tumbUrl;
     // let videoUrl = VR.get.urls(movieObj.datealias).videoUrl;
 
-    let video = '<li class="video-wrapper" data-timestamp="' + movieObj.timestamp + '">';
+    let video = '<li class="video-wrapper ' + postion + '" data-timestamp="' + movieObj.timestamp + ' "style="' + postion + ': 0; left: ' + abosuleLeft + 'vh">';
     video += '    <div class="video-wrapper-inner"><div class="thumbnail-wrapper">'
     video += '		  <img class="thumbnail" src="' + tumbUrlGenerated + '">';
     video += '  		<div class="media-caption">';
@@ -56,7 +59,7 @@ VR.timeline = (function () { //funtion to render a template.
     video += '				<video autoplay controls style="display:none;">';
     video += '					   Sorry, your browser doesnt support embedded videos';
     video += '				</video>';
-    video += '<span class="video-date">' + VR.date.readableDate(movieObj.datealias) + '</span></div></li>';
+    video += '<span class="video-date">' + movieObj.datealias + '</span></div></li>';
     return video;
   }
 
@@ -123,7 +126,6 @@ VR.timeline = (function () { //funtion to render a template.
     });
   }
 
-
   function clickCloseMeta() {
     VR.get.one('.btn-close').addEventListener('click', function (e) {
       VR.router.show('#timeline');
@@ -148,8 +150,10 @@ VR.timeline = (function () { //funtion to render a template.
     document.getElementById('description').innerHTML = selectedVideo.description;
     document.getElementById('date-alias').innerHTML = selectedVideo.datealias;
     document.getElementById('meta-thumbnail').src = 'media/thumbnails/' + selectedVideo.thumbnail;
+    document.getElementById('context').innerHTML = selectedVideo.context;
     clickMetaVideo();
     clickCloseMeta();
+
   }
 
   /**
@@ -170,6 +174,33 @@ VR.timeline = (function () { //funtion to render a template.
 
   }
 
+
+  /**
+   * Convers the mouse scroll from vertical scroll to horizontal scroll
+   *
+   * @param      {event}  e       { parameter_description }
+   */
+  function scrollHorizontally(e) {
+    e = window.event || e;
+    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+    document.getElementsByClassName('video-list')[0].scrollLeft -= (delta * 40); // Multiplied by 40
+    e.preventDefault();
+  }
+
+  /**
+   * Adds scroll listeners for horizontal scrollign.
+   */
+  function addScrollListeners() {
+    if (document.getElementsByClassName('video-list')[0].addEventListener) {
+      // IE9, Chrome, Safari, Opera
+      document.getElementsByClassName('video-list')[0].addEventListener("mousewheel", scrollHorizontally, false);
+      // Firefox
+      document.getElementsByClassName('video-list')[0].addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    } else {
+      // IE 6/7/8
+      document.getElementsByClassName('video-list')[0].addEventListener("onmousewheel", scrollHorizontally);
+    }
+  }
 
   return {
     init: init

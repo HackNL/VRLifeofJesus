@@ -9,9 +9,10 @@ $black-color: #000;
 
   ul {
     &::before {
-      position: absolute;
+      position: fixed;
       top: 50%;
-      width: 100%;
+      width: 100vw;
+      top: 50%;
       height: 1px;
       border-bottom: 1px solid $black-color;
       content: '';
@@ -29,9 +30,9 @@ $black-color: #000;
 
   .video-wrapper {
     display: inline-block;
-    position: relative;
     height: 50vh;
     width: auto;
+    position: absolute;
     // max-width: 50vh;
   }
 
@@ -40,10 +41,10 @@ $black-color: #000;
     margin: 1em;
   }
 
-  .video-wrapper::before {
+  .video-wrapper.bottom::before,
+  .video-wrapper.top::before {
     display: block;
     position: absolute;
-    bottom: 0;
     left: 50%;
     width: 1px;
     height: 5.5em;
@@ -51,17 +52,30 @@ $black-color: #000;
     content: '';
   }
 
-  .video-wrapper::after {
+  .video-wrapper.bottom::after,
+  .video-wrapper.top::after {
     display: block;
     position: absolute;
-    bottom: -0.5em;
-    left: 48.9%;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    backdrop-filter: blur(10px);
     background: $black-color;
+    height: 1em;
+    width: 1em;
+    left: 49%;
     content: '';
+  }
+
+  .video-wrapper.bottom::after,
+  .video-wrapper.bottom::before {
+    top: 0;
+  }
+
+  .video-wrapper.top::after,
+  .video-wrapper.top::before {
+    bottom: 0;
+  }
+
+  .video-wrapper.bottom,
+  .video-wrapper.top {
+    bottom: 0;
   }
 
   .media-caption {
@@ -75,6 +89,7 @@ $black-color: #000;
     background: linear-gradient(rgba(33, 33, 33, 0), rgba(33, 33, 33, 0.7) 65.97%, rgba(33, 33, 33, 0.701961) 98.74%);
     font-size: 0.888889em;
     line-height: 1.625em;
+    padding: 0.5em;
   }
 
   .caption-content {
@@ -102,6 +117,7 @@ $black-color: #000;
   .video-date {}
 }
 // detail page
+
 #video {
   .video-wrapper:after {
     display: none;
@@ -131,6 +147,10 @@ $black-color: #000;
   .content-wrapper {
     width: 94%;
     padding: 40px 3%;
+  }
+
+  img {
+    max-width: 100vw;
   }
 
   h2 {
