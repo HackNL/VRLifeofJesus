@@ -71,12 +71,28 @@ $black-color: #000;
 
   .video-wrapper.top::after,
   .video-wrapper.top::before {
-    bottom: 0;
+    bottom: -0.5em;
   }
 
   .video-wrapper.bottom,
   .video-wrapper.top {
     bottom: 0;
+  }
+
+  .video-wrapper.top .video-date {
+    left: 55%;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .video-wrapper.bottom .video-wrapper-inner {
+    margin-top: 3em;
+  }
+
+  .video-wrapper.bottom .video-date {
+    left: 55%;
+    position: absolute;
+    top: 0;
   }
 
   .media-caption {
