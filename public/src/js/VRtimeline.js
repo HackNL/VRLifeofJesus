@@ -149,6 +149,7 @@ VR.timeline = (function () { //funtion to render a template.
     document.getElementById('description').innerHTML = selectedVideo.description;
     document.getElementById('date-alias').innerHTML = selectedVideo.datealias;
     document.getElementById('meta-thumbnail').src = 'media/thumbnails/' + selectedVideo.thumbnail;
+    document.getElementById('context').innerHTML = selectedVideo.context;
     clickMetaVideo();
     clickCloseMeta();
   }
