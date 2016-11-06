@@ -8,7 +8,7 @@
         "title": "The Lamb of God",
         "description": "John the baptist sees the savior.",
         "importance": 70,
-        "context":"The next day he saw Jesus coming toward him, and said, 'Behold, the Lamb of God, who takes away the sin of the world! ---John 1:29"
+        "context": "The next day he saw Jesus coming toward him, and said, 'Behold, the Lamb of God, who takes away the sin of the world! ---John 1:29"
     }, {
         "id": "bodytemple",
         "filename": "bodytemple.mp4",
@@ -18,7 +18,7 @@
         "title": "Jesus in the Temple",
         "description": "Jesus clears out the Temple.",
         "importance": 50,
-        "context":""
+        "context": ""
 
     }, {
         "id": "stone",
@@ -29,7 +29,7 @@
         "title": "Forgiveness",
         "description": "Jesus shows shows mercy to an accused woman.",
         "importance": 40,
-        "context":""
+        "context": ""
 
     }, {
         "id": "walk",
@@ -40,7 +40,7 @@
         "title": "Get Up and Walk",
         "description": "Jesus heals a lame man.",
         "importance": 40,
-        "context":""
+        "context": ""
 
     }, {
         "id": "blind",
@@ -51,7 +51,7 @@
         "title": "Wash and See",
         "description": "Jesus gives sight to a man born blind.",
         "importance": 50,
-        "context":"Jesus said, For judgment I came into this world, that those who do not see may see, and those who see may become blind. ---John 9:39"
+        "context": "Jesus said, For judgment I came into this world, that those who do not see may see, and those who see may become blind. ---John 9:39"
 
     }, {
         "id": "iam",
@@ -62,7 +62,7 @@
         "title": "I Am",
         "description": "Jesus makes a clear claim to be God.",
         "importance": 90,
-        "context":"I am the bread of life. ---John 6:48"
+        "context": "I am the bread of life. ---John 6:48"
 
     }, {
         "id": "die",
@@ -73,7 +73,7 @@
         "title": "Conspiracy",
         "description": "The religious leaders plot against Jesus.",
         "importance": 80,
-        "context":""
+        "context": ""
 
     }, {
         "id": "judgement",
@@ -84,7 +84,7 @@
         "title": "Sentenced to death",
         "description": "Jesus is condemned in a mock trial.",
         "importance": 80,
-        "context":""
+        "context": ""
 
     }, {
         "id": "death",
@@ -95,7 +95,7 @@
         "title": "Death",
         "description": "The son of God is put to death on a cross.",
         "importance": 100,
-        "context":""
+        "context": ""
 
     }, {
         "id": "alive",
@@ -106,7 +106,7 @@
         "title": "Jesus is Alive",
         "description": "The resurrected Christ appears to his disciples.",
         "importance": 100,
-        "context":""
+        "context": ""
 
     }]
 }
