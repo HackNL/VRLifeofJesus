@@ -4,15 +4,11 @@
         "filename": "johnlamb.mp4",
         "thumbnail": "johnlamb.jpg",
         "timestamp": 1,
-        "datealias": "31-12-2016",
+        "datealias": "Jesus: age 29",
         "title": "The Lamb of God",
-        "description": "John the baptist sees the savior.
-        
-        The next day he saw Jesus coming toward him, and said, 'Behold, the Lamb of God, who takes away the sin of the world!
-        
-        John 1:29
-        ",
-        "importance": 70
+        "description": "John the baptist sees the savior.",
+        "importance": 70,
+        "context":"The next day he saw Jesus coming toward him, and said, 'Behold, the Lamb of God, who takes away the sin of the world! ---John 1:29"
     }, {
         "id": "bodytemple",
         "filename": "bodytemple.mp4",
