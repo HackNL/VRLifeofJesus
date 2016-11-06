@@ -97,7 +97,7 @@ VR.timeline = (function () { //funtion to render a template.
     });
   }
 
-function clickMetaVideo() {
+  function clickMetaVideo() {
     VR.get.one('#meta-btn-play').addEventListener('click', function (e) {
       var selectedVideoId = e.target.dataset.videoId;
       var selectedVideo = getVideo(selectedVideoId);
@@ -116,7 +116,8 @@ function clickMetaVideo() {
     VR.get.one('.btn-close').addEventListener('click', function () {
 
       var videoElement = document.getElementById('meta-video');
-      document.getElementsByClassName('meta-thumbnail-wrapper')[0].style.display = 'block';
+      videoElement.style.display = 'none';
+      document.querySelector('.meta-thumbnail-wrapper').style.display = 'block';
       videoElement.pause();
       videoElement.currentTime = 0;
       videoElement.src = '';
