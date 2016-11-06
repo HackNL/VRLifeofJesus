@@ -15,6 +15,7 @@ $black-color: #000;
       top: 50%;
       height: 1px;
       border-bottom: 1px solid $black-color;
+      box-shadow: 0 0 50px 0 rgba(0, 0, 0, .05);
       content: '';
       z-index: 10;
     }
@@ -66,7 +67,7 @@ $black-color: #000;
 
   .video-wrapper.bottom::after,
   .video-wrapper.bottom::before {
-    top: 0;
+    top: -0.5em;
   }
 
   .video-wrapper.top::after,
@@ -219,7 +220,7 @@ $black-color: #000;
       float: left;
     }
 
-    div.content-wrapper-detail{
+    div.content-wrapper-detail {
       display: inline-block;
       margin: 5px;
       max-width: 34%;

@@ -26,14 +26,17 @@ $black-color: #000000;
 
 .btn-play {
   border: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #fff;
+  background-color: rgba(0, 173, 239, 0.8);
+  border-radius: 2px;
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, .05);
   height: 40px;
   left: 50%;
   margin-left: -40px;
   margin-top: -40px;
   position: absolute;
   top: 50%;
-  transition: all 0.3s ease;
+  transition: background-color 0.4s ease;
   width: 65px;
 }
 
@@ -47,7 +50,7 @@ $black-color: #000000;
   border-width: 9.5px 0 9.5px 17px;
   content: "";
   display: block;
-  left: 24px;
+  left: 40%;
   margin: 0 auto;
   position: absolute;
   top: 10.5px;
