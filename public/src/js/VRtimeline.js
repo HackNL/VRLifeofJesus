@@ -12,7 +12,7 @@ VR.timeline = (function () { //funtion to render a template.
   function _getData() {
     let videoList = VR.get.one('.video-list');
     let url = VR.get.urls('data.json').dataUrl;
-
+    videoList.innerHTML = '';
     VR.get.data(url).then(response => {
       var parsed = JSON.parse(response);
       timelineData = parsed;
@@ -22,10 +22,10 @@ VR.timeline = (function () { //funtion to render a template.
       videoList.appendChild(ul);
       clickVideo();
     });
-
   }
 
   function _generateTimeline(data) {
+
     let videoList = document.createElement('ul');
 
     data.videos.forEach(function (movieObj) {
