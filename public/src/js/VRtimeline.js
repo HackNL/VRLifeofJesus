@@ -35,6 +35,7 @@ VR.timeline = (function () { //funtion to render a template.
     console.debug(data)
     let videoList = document.createElement('ul');
     let abosuleLeft;
+    let amount = data.videos.length;
     data.videos.forEach(function (movieObj, index) {
       // console.log(movieObj);
       let postion = (VR.get.isOdd(index) === 1) ? 'bottom' : 'top';
@@ -93,7 +94,7 @@ VR.timeline = (function () { //funtion to render a template.
     });
   }
 
-  function clickMetaVideo() {
+function clickMetaVideo() {
     VR.get.one('#meta-btn-play').addEventListener('click', function (e) {
       var selectedVideoId = e.target.dataset.videoId;
       var selectedVideo = getVideo(selectedVideoId);
@@ -183,24 +184,13 @@ VR.timeline = (function () { //funtion to render a template.
     document.getElementsByClassName('video-list')[0].scrollLeft -= (delta * 40); // Multiplied by 40
     e.preventDefault();
   }
-  // function _dragScroll() {
-  //     let videoList = document.getElementsByClassName('video-list')[0];
-  //   var curYPos = 0,
-  //     curXPos = 0,
-  //     curDown = false;
-  //
-  //   videoList.addEventListener('mousemove', function (e) {
-  //     if (curDown === true) {
-  //       var timeLine = VR.get.one('#timeline');
-  //
-  //     }
-  //   });
 
 
   /**
    * Adds scroll listeners for horizontal scrollign.
    */
   function addScrollListeners() {
+
     let videoList = document.getElementsByClassName('video-list')[0];
     if (videoList.addEventListener) {
       // IE9, Chrome, Safari, Opera
