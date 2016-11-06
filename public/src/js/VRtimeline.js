@@ -33,6 +33,9 @@ VR.timeline = (function () { //funtion to render a template.
 
   function _generateTimeline(data) {
     console.debug(data)
+
+    VR.timeline.timelineData = data;
+
     let videoList = document.createElement('ul');
     let abosuleLeft;
     let amount = data.videos.length;
@@ -205,7 +208,8 @@ VR.timeline = (function () { //funtion to render a template.
   }
 
   return {
-    init: init
+    init: init,
+    timelineData:timelineData
   };
 
 })();
