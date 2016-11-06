@@ -21,6 +21,7 @@ VR.timeline = (function () { //funtion to render a template.
     }).then(ul => {
       videoList.appendChild(ul);
       clickVideo();
+      addScrollListeners();
     });
   }
 
@@ -152,6 +153,7 @@ VR.timeline = (function () { //funtion to render a template.
     document.getElementById('context').innerHTML = selectedVideo.context;
     clickMetaVideo();
     clickCloseMeta();
+
   }
 
   /**
@@ -172,6 +174,33 @@ VR.timeline = (function () { //funtion to render a template.
 
   }
 
+
+  /**
+   * Convers the mouse scroll from vertical scroll to horizontal scroll
+   *
+   * @param      {event}  e       { parameter_description }
+   */
+  function scrollHorizontally(e) {
+      e = window.event || e;
+      var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+      document.getElementsByClassName('video-list')[0].scrollLeft -= (delta*40); // Multiplied by 40
+      e.preventDefault();
+  }
+
+  /**
+   * Adds scroll listeners for horizontal scrollign.
+   */
+  function addScrollListeners(){
+    if (document.getElementsByClassName('video-list')[0].addEventListener) {
+        // IE9, Chrome, Safari, Opera
+        document.getElementsByClassName('video-list')[0].addEventListener("mousewheel", scrollHorizontally, false);
+        // Firefox
+        document.getElementsByClassName('video-list')[0].addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    } else {
+        // IE 6/7/8
+        document.getElementsByClassName('video-list')[0].addEventListener("onmousewheel", scrollHorizontally);
+    }
+  }
 
   return {
     init: init
