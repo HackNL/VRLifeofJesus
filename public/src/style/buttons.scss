@@ -1,0 +1,93 @@
+$black-color: #000000;
+
+.btn {
+  background-color: transparent;
+  border: none;
+  border: solid 2px $black-color;
+  box-sizing: border-box;
+  color: $black-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-align: center;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.btn-right {
+  margin: 1.5em;
+  position: absolute;
+  right: 0;
+}
+
+.btn-play {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 40px;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  position: absolute;
+  top: 50%;
+  transition: all 0.3s ease;
+  width: 65px;
+}
+
+.btn-play:hover {
+  background-color: rgba(0, 173, 239, 0.9);
+}
+
+.btn-play:after {
+  border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-width: 9.5px 0 9.5px 17px;
+  content: "";
+  display: block;
+  left: 24px;
+  margin: 0 auto;
+  position: absolute;
+  top: 10.5px;
+}
+
+.btn-close {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 50px;
+  float: right;
+  overflow: hidden;
+}
+
+.btn-close:hover {
+  opacity: 0.5;
+}
+
+.btn-close.black::after,
+.btn-close.black::before {
+  height: 8px;
+  margin-top: -4px;
+}
+
+.btn-close::before {
+  transform: rotate(45deg);
+}
+
+.btn-close::after {
+  transform: rotate(-45deg);
+}
+
+.btn-close::after,
+.btn-close::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+  background: #fff;
+  content: '';
+}
