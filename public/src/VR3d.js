@@ -242,11 +242,9 @@ VR.V3d = (function () {
 				new createjs.Tween(mesh.position).to({x:mesh.originalPosition.x, y:mesh.originalPosition.y, z: mesh.originalPosition.z}, 400);
 				if (mesh.oldMaterial) mesh.material=mesh.oldMaterial;
 			}
-
+ 			document.getElementById('cardboardOffscreenVideo').pause();
 
 		})
-		//
-
 	}
   return {
     init: init,
@@ -254,7 +252,8 @@ VR.V3d = (function () {
     enableVR: enableVR,
     disableVR: disableVR,
     toggleVR: toggleVR,
-    blackMaterial:blackMaterial
+    blackMaterial:blackMaterial,
+    video:video
   }
 
 })();
