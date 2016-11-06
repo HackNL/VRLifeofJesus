@@ -17,7 +17,8 @@
         "datealias": "31-12-2016",
         "title": "Jesus in the Temple",
         "description": "Jesus clears out the Temple.",
-        "importance": 50
+        "importance": 50,
+        "context":""
         
     }, {
         "id": "stone",
@@ -27,7 +28,8 @@
         "datealias": "31-12-2016",
         "title": "Forgiveness",
         "description": "Jesus shows shows mercy to an accused woman.",
-        "importance": 40
+        "importance": 40,
+        "context":""
         
     }, {
         "id": "walk",
@@ -37,7 +39,8 @@
         "datealias": "31-12-2016",
         "title": "Get Up and Walk",
         "description": "Jesus heals a lame man.",
-        "importance": 40
+        "importance": 40,
+        "context":""
         
     }, {
         "id": "blind",
@@ -47,7 +50,8 @@
         "datealias": "31-12-2016",
         "title": "Wash and See",
         "description": "Jesus gives sight to a man born blind.",
-        "importance": 50
+        "importance": 50,
+        "context":"Jesus said, For judgment I came into this world, that those who do not see may see, and those who see may become blind. ---John 9:39"
         
     }, {
         "id": "iam",
@@ -57,7 +61,8 @@
         "datealias": "31-12-2016",
         "title": "I Am",
         "description": "Jesus makes a clear claim to be God.",
-        "importance": 90
+        "importance": 90,
+        "context":"I am the bread of life. ---John 6:48"
         
     }, {
         "id": "die",
@@ -67,7 +72,8 @@
         "datealias": "31-12-2016",
         "title": "Conspiracy",
         "description": "The religious leaders plot against Jesus.",
-        "importance": 80
+        "importance": 80,
+        "context":""
         
     }, {
         "id": "judgement",
@@ -77,7 +83,8 @@
         "datealias": "31-12-2016",
         "title": "Sentenced to death",
         "description": "Jesus is condemned in a mock trial.",
-        "importance": 80
+        "importance": 80,
+        "context":""
         
     }, {
         "id": "death",
@@ -87,7 +94,8 @@
         "datealias": "31-12-2016",
         "title": "Death",
         "description": "The son of God is put to death on a cross.",
-        "importance": 100
+        "importance": 100,
+        "context":""
         
     }, {
         "id": "alive",
@@ -97,7 +105,8 @@
         "datealias": "31-12-2016",
         "title": "Jesus is Alive",
         "description": "The resurrected Christ appears to his disciples.",
-        "importance": 100
+        "importance": 100,
+        "context":""
         
     }]
 }
