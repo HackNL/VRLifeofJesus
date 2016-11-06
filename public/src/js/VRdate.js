@@ -2,7 +2,7 @@
 VR.date = (function () {
   let dates = {
     days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   };
 
   function readableDate(unfromatedDate) {
@@ -12,7 +12,7 @@ VR.date = (function () {
     let day = dates.days[newDate.getDay()];
     let year = newDate.getFullYear();
 
-    return day + ' ' + date + ' ' + month + ' ' + year;
+    return date + ' ' + month + ' ' + year;
   }
 
 

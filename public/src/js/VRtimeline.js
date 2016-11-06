@@ -29,35 +29,34 @@ VR.timeline = (function () { //funtion to render a template.
     let videoList = document.createElement('ul');
 
     data.videos.forEach(function (movieObj) {
-      var videoId = movieObj;
-
-      let element = _createVideoElement(movieObj.thumbnail, movieObj.title, movieObj.description, movieObj.id);
+      // console.log(movieObj);
+      let element = _createVideoElement(movieObj);
       // console.log(obj);
       videoList.innerHTML += element; //add it to the ul
     });
     return videoList;
   }
 
-  function _createVideoElement(tumbUrl, title, description, videoId) {
-    let tumbUrlGenerated = VR.get.urls(tumbUrl).tumbUrl;
-    let videoUrl = VR.get.urls(tumbUrl).tumbUrl;
-    // console.log(tumbUrl);
-    let video = '<li><div class="video-wrapper">';
-    video += '					<div class="thumbnail-wrapper">'
-    video += '						<img class="thumbnail" src="' + tumbUrlGenerated + '">';
-    video += '  					<div class="media-caption">';
-    video += '  						<div class="caption-content">';
-    video += '  							<h2>' + title + '</h2>';
-    video += '  							<span>' + description + '</span>';
-    video += '  						</div>';
-    video += '    				</div>';
-    video += '  					<div class="video-play" data-video-id="' + videoId + '"">';
-    video += '  					</div>';
-    video += '					</div>';
-    video += '					<video autoplay controls style="display:none;">';
-    video += '					Sorry, your browser doesnt support embedded videos';
-    video += '					</video>';
-    video += '</div></li>';
+  function _createVideoElement(movieObj) {
+    let tumbUrlGenerated = VR.get.urls(movieObj.thumbnail).tumbUrl;
+    // let videoUrl = VR.get.urls(movieObj.datealias).videoUrl;
+
+    let video = '<li class="video-wrapper" data-timestamp="' + movieObj.timestamp + '">';
+    video += '    <div class="video-wrapper-inner"><div class="thumbnail-wrapper">'
+    video += '		  <img class="thumbnail" src="' + tumbUrlGenerated + '">';
+    video += '  		<div class="media-caption">';
+    video += '  		  <div class="caption-content">';
+    video += '  			  <h2>' + movieObj.title + '</h2>';
+    video += '  			  <span>' + movieObj.description + '</span>';
+    video += '  			</div>';
+    video += '    		</div>';
+    video += '  			<button class="btn-play" data-video-id="' + movieObj.id + '"">';
+    video += '  			</button>';
+    video += '				</div>';
+    video += '				<video autoplay controls style="display:none;">';
+    video += '					   Sorry, your browser doesnt support embedded videos';
+    video += '				</video>';
+    video += '<span class="video-date">' + VR.date.readableDate(movieObj.datealias) + '</span></div></li>';
     return video;
   }
 
@@ -65,7 +64,7 @@ VR.timeline = (function () { //funtion to render a template.
 
     document.querySelector('.video-list ul').addEventListener('click', function (e) {
 
-      if (e.target.className === "video-play") {
+      if (e.target.className === "btn-play") {
 
         _selectedVideoId = e.target.dataset.videoId;
 
@@ -110,7 +109,7 @@ VR.timeline = (function () { //funtion to render a template.
   // }
 
   function clickMetaVideo() {
-    VR.get.one('#meta-video-play').addEventListener('click', function (e) {
+    VR.get.one('#meta-btn-play').addEventListener('click', function (e) {
       var selectedVideoId = e.target.dataset.videoId;
       var selectedVideo = getVideo(selectedVideoId);
       // Play the video
@@ -126,7 +125,7 @@ VR.timeline = (function () { //funtion to render a template.
 
 
   function clickCloseMeta() {
-    VR.get.one('.close').addEventListener('click', function (e) {
+    VR.get.one('.btn-close').addEventListener('click', function (e) {
       VR.router.show('#timeline');
       var videoElement = document.getElementById('meta-video');
 
@@ -144,7 +143,7 @@ VR.timeline = (function () { //funtion to render a template.
    */
   function renderVideoMetaData(selectedVideo) {
     console.log(selectedVideo);
-    document.getElementById('meta-video-play').setAttribute('data-video-id', selectedVideo.id);
+    document.getElementById('meta-btn-play').setAttribute('data-video-id', selectedVideo.id);
     document.getElementById('video-title').innerHTML = selectedVideo.title;
     document.getElementById('description').innerHTML = selectedVideo.description;
     document.getElementById('date-alias').innerHTML = selectedVideo.datealias;
