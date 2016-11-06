@@ -77,12 +77,12 @@
             <div id="timeline3D">
             </div>
             <video id="cardboardOffscreenVideo" webkit-playsinline style="display:none">
-            <source src="media/video/alive.mp4" type='video/mp4'>
+                <source type='video/mp4'></source>
             </video>
             <canvas id="cardboardOffscreenCanvas" width=1024 height=1024 style="display:none"></canvas>
             <div style="position:absolute;right:20px;bottom:20px;" onclick="VR.V3d.toggleVR();"><img src="media/gui/cardboardIcon.png"></div>
         </section>
-
+        
         <!-- the time line -->
         <section id="timeline" class="page">
             <button onclick="VR.router.show('#cardboard')" class="btn btn-right" name="button">VR</button>

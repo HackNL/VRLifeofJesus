@@ -1,6 +1,7 @@
 //To easily select something from the DOM
 VR.V3d = (function () {
   var effect, video, image, imageContext,texture;
+  var timelineDistance=-4;
 
   function init() {
     console.log("initializing VR.V3d...");
@@ -69,13 +70,11 @@ VR.V3d = (function () {
       raycaster.setFromCamera( mouse, camera );
 
       var intersects = raycaster.intersectObjects( scene.children, true );
+	  	stopAllVideos();
       if ( intersects.length > 0 && intersects[0].object.data)//checks if there is any media data from the timeline associated to this object. 
       {
 		    var object3d =  intersects[ 0 ].object;
 
-		        position = {z: -1};
-		    new createjs.Tween(object3d.position)
-		        .to(position, 800);
 				showVideo(intersects[ 0 ].object);
 
       }
@@ -115,30 +114,29 @@ VR.V3d = (function () {
 
     //var videoData = VR.render.timelineData
     
-    var placeholder = new THREE.Object3D();
-    placeholder.name = "placeholder";
-    var material = new THREE.MeshPhongMaterial({
-      color: 0x00ff00
+ 
+    VR.timeline.timelineData.videos.forEach(function(mediaItem)
+    {
+	    var placeholder = new THREE.Object3D();
+	    placeholder.name = "placeholder";
+	    thumbnailTexture = new THREE.ImageUtils.loadTexture("media/thumbnails/"+mediaItem.thumbnail);
+			ThumbnailMaterial = new THREE.MeshBasicMaterial( { map: thumbnailTexture, overdraw: 0.5 } );
+    
+
+	    scene.add(placeholder);
+	    placeholder.position.set(0, camera.position.y, 0);
+	    placeholder.rotation.set(0,-mediaItem.timestamp/16.66666,0);
+
+	    var geometry = new THREE.PlaneBufferGeometry(1.6, .9);
+	    var media  = new THREE.Mesh(geometry);
+	    media.name = mediaItem.id;
+	    media.material=ThumbnailMaterial;
+	    media.data =mediaItem;
+
+	    media.position.set(0, 0, timelineDistance);
+	    placeholder.add(media);
     });
 
-    scene.add(placeholder);
-    placeholder.position.set(0, camera.position.y, 0);
-
-    var geometry = new THREE.PlaneBufferGeometry(1.6, .9);
-    var media  = new THREE.Mesh(geometry);
-    media.name = "mediaPlane";
-    //temporary media data. should be read from data.json
-    media.data ={"video2": {
-            "filename": "video2.mp4",
-            "thumbnail": "video2.jpg",
-            "timestamp": 55,
-            "datealias": "2016/11/15",
-            "title": "Video2",
-            "description": "This is video2"
-        }};
-
-    media.position.set(0, 0, -2);
-    placeholder.add(media);
   }
 
   function resize() {
@@ -165,8 +163,8 @@ VR.V3d = (function () {
       imageContext.drawImage( video, 0, 0 );
       if ( texture ) texture.needsUpdate = true;
     }
-    if (effect) effect.render(scene, camera);
-    else renderer.render(scene, camera);
+    if (effect) {effect.render(scene, camera);}
+    else {renderer.render(scene, camera);}
   }
 
   function fullscreen() {
@@ -183,6 +181,11 @@ VR.V3d = (function () {
 
   function showVideo(mesh)
   {
+  	//move video forward
+    position = {z: -1};
+    new createjs.Tween(mesh.position)
+        .to(position, 800);
+
     video = document.getElementById('cardboardOffscreenVideo');
     image = document.getElementById('cardboardOffscreenCanvas');
     imageContext = image.getContext( '2d' );
@@ -191,9 +194,32 @@ VR.V3d = (function () {
 		texture.repeat.y=0.7;
     var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
     mesh.material=material;
-    video.source="media/video/"+mesh.data.filename;
+		//play new video
+    video.setAttribute('src',"media/video/"+mesh.data.filename);
     video.play();
+
   }
+
+	function stopAllVideos()
+	{
+		//find all children of the scene that are named placeholder
+		scene.children.forEach(function(child){
+			//iterate through placeholders
+			if (child.name=="placeholder")
+			{
+			//find the only child
+				mesh=child.children[0];
+				position = {z: timelineDistance};
+				new createjs.Tween(mesh.position)
+    		.to(position, 400);
+
+			}
+
+
+		})
+		//
+
+	}
   return {
     init: init,
     showVideo: showVideo,
