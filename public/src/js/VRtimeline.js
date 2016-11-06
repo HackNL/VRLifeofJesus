@@ -7,26 +7,32 @@ VR.timeline = (function () { //funtion to render a template.
   function init() {
     // r._getData();
     _getData();
+
   }
 
   function _getData() {
-    let videoList = VR.get.one('.video-list');
     let url = VR.get.urls('data.json').dataUrl;
-    videoList.innerHTML = '';
+
     VR.get.data(url).then(response => {
       var parsed = JSON.parse(response);
       timelineData = parsed;
-
-      return _generateTimeline(parsed);
-    }).then(ul => {
-      videoList.appendChild(ul);
-      clickVideo();
-      addScrollListeners();
+      _renderPage(timelineData);
     });
   }
 
-  function _generateTimeline(data) {
+  function _renderPage(timelineData) {
+    let videoList = VR.get.one('.video-list');
 
+    videoList.innerHTML = '';
+    var ul = _generateTimeline(timelineData);
+    videoList.appendChild(ul);
+
+    clickVideo();
+    addScrollListeners();
+  }
+
+  function _generateTimeline(data) {
+    console.debug(data)
     let videoList = document.createElement('ul');
     let abosuleLeft;
     data.videos.forEach(function (movieObj, index) {
@@ -66,9 +72,9 @@ VR.timeline = (function () { //funtion to render a template.
   function clickVideo() {
 
     document.querySelector('.video-list ul').addEventListener('click', function (e) {
-
+      console.debug('sdfsdf');
       if (e.target.className === "btn-play") {
-
+        console.log('sdf');
         _selectedVideoId = e.target.dataset.videoId;
 
         var selectedVideo = getVideo(_selectedVideoId);
@@ -87,17 +93,7 @@ VR.timeline = (function () { //funtion to render a template.
     });
   }
 
-  // function _dragScroll() {
-  //   var curYPos = 0,
-  //     curXPos = 0,
-  //     curDown = false;
-  //
-  //   window.addEventListener('mousemove', function (e) {
-  //     if (curDown === true) {
-  //       var timeLine = VR.get.one('#timeline');
-  //
-  //     }
-  //   });
+
   //
   //   window.addEventListener('mousedown', function (e) {
   //
@@ -128,32 +124,46 @@ VR.timeline = (function () { //funtion to render a template.
 
   function clickCloseMeta() {
     VR.get.one('.btn-close').addEventListener('click', function (e) {
+
+      // var videoElement = document.getElementById('meta-video');
+      //
+      // videoElement.pause();
+      // videoElement.currentTime = 0;
+      // videoElement.src = '';
+      _getData();
       VR.router.show('#timeline');
-      var videoElement = document.getElementById('meta-video');
-
-      console.log(videoElement.pause())
-
-      videoElement.pause();
-      videoElement.currentTime = 0;
     });
   }
 
   /**
    * Renders the video meta data in the video-meta section
    *
-   * @param      {obj}  selectedVideo  The selected video
+   * @param {obj}  selectedVideo  The selected video
    */
+
   function renderVideoMetaData(selectedVideo) {
-    console.log(selectedVideo);
+
+    var contentWrapper = document.querySelector('.content-wrapper-detail');
+    console.debug(selectedVideo);
     document.getElementById('meta-btn-play').setAttribute('data-video-id', selectedVideo.id);
-    document.getElementById('video-title').innerHTML = selectedVideo.title;
-    document.getElementById('description').innerHTML = selectedVideo.description;
-    document.getElementById('date-alias').innerHTML = selectedVideo.datealias;
+    console.log(selectedVideo.thumbnail);
     document.getElementById('meta-thumbnail').src = 'media/thumbnails/' + selectedVideo.thumbnail;
-    document.getElementById('context').innerHTML = selectedVideo.context;
+
+    var detail = '<div class="content-inner">';
+    detail += '<h2 id="video-title">' + selectedVideo.title + '</h2>';
+    detail += '<p id="date-alias">' + selectedVideo.datealias + '</p>';
+    detail += '<p id="description">' + selectedVideo.description + '</p>';
+    detail += '<p id="context">' + selectedVideo.title + '</p>';
+    detail += '</div>';
+
+    contentWrapper.innerHTML = detail;
+    // document.getElementById('video-title').innerHTML = selectedVideo.title;
+    // document.getElementById('description').innerHTML = selectedVideo.description;
+    // document.getElementById('date-alias').innerHTML = selectedVideo.datealias;
+    //
+    // document.getElementById('context').innerHTML = selectedVideo.context;
     clickMetaVideo();
     clickCloseMeta();
-
   }
 
   /**
@@ -186,19 +196,33 @@ VR.timeline = (function () { //funtion to render a template.
     document.getElementsByClassName('video-list')[0].scrollLeft -= (delta * 40); // Multiplied by 40
     e.preventDefault();
   }
+  // function _dragScroll() {
+  //     let videoList = document.getElementsByClassName('video-list')[0];
+  //   var curYPos = 0,
+  //     curXPos = 0,
+  //     curDown = false;
+  //
+  //   videoList.addEventListener('mousemove', function (e) {
+  //     if (curDown === true) {
+  //       var timeLine = VR.get.one('#timeline');
+  //
+  //     }
+  //   });
+
 
   /**
    * Adds scroll listeners for horizontal scrollign.
    */
   function addScrollListeners() {
-    if (document.getElementsByClassName('video-list')[0].addEventListener) {
+    let videoList = document.getElementsByClassName('video-list')[0];
+    if (videoList.addEventListener) {
       // IE9, Chrome, Safari, Opera
-      document.getElementsByClassName('video-list')[0].addEventListener("mousewheel", scrollHorizontally, false);
+      videoList.addEventListener("mousewheel", scrollHorizontally, false);
       // Firefox
-      document.getElementsByClassName('video-list')[0].addEventListener("DOMMouseScroll", scrollHorizontally, false);
+      videoList.addEventListener("DOMMouseScroll", scrollHorizontally, false);
     } else {
       // IE 6/7/8
-      document.getElementsByClassName('video-list')[0].addEventListener("onmousewheel", scrollHorizontally);
+      videoList.addEventListener("onmousewheel", scrollHorizontally);
     }
   }
 

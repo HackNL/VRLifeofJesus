@@ -6,7 +6,9 @@
         "timestamp": 1,
         "datealias": "2016/11/30",
         "title": "The Lamb of God",
-        "description": "John the baptist sees the savior."
+        "description": "John the baptist sees the savior.",
+        "importance": 70,
+        "context": "The next day he saw Jesus coming toward him, and said, 'Behold, the Lamb of God, who takes away the sin of the world! ---John 1:29"
     }, {
         "id": "bodytemple",
         "filename": "bodytemple.mp4",
@@ -14,7 +16,10 @@
         "timestamp": 10,
         "datealias": "2016/11/30",
         "title": "Jesus in the Temple",
-        "description": "Jesus clears out the Temple."
+        "description": "Jesus clears out the Temple.",
+        "importance": 50,
+        "context": ""
+
     }, {
         "id": "stone",
         "filename": "stone.mp4",
@@ -22,7 +27,10 @@
         "timestamp": 25,
         "datealias": "2016/11/30",
         "title": "Forgiveness",
-        "description": "Jesus shows shows mercy to an accused woman."
+        "description": "Jesus shows shows mercy to an accused woman.",
+        "importance": 40,
+        "context": ""
+
     }, {
         "id": "walk",
         "filename": "walk.mp4",
@@ -30,7 +38,10 @@
         "timestamp": 40,
         "datealias": "2016/11/30",
         "title": "Get Up and Walk",
-        "description": "Jesus heals a lame man."
+        "description": "Jesus heals a lame man.",
+        "importance": 40,
+        "context": ""
+
     }, {
         "id": "blind",
         "filename": "blind.mp4",
@@ -38,7 +49,10 @@
         "timestamp": 57,
         "datealias": "2016/11/30",
         "title": "Wash and See",
-        "description": "Jesus gives sight to a man born blind."
+        "description": "Jesus gives sight to a man born blind.",
+        "importance": 50,
+        "context": "Jesus said, For judgment I came into this world, that those who do not see may see, and those who see may become blind. ---John 9:39"
+
     }, {
         "id": "iam",
         "filename": "iam.mp4",
@@ -46,7 +60,10 @@
         "timestamp": 65,
         "datealias": "2016/11/30",
         "title": "I Am",
-        "description": "Jesus makes a clear claim to be God."
+        "description": "Jesus makes a clear claim to be God.",
+        "importance": 90,
+        "context": "I am the bread of life. ---John 6:48"
+
     }, {
         "id": "die",
         "filename": "die.mp4",
@@ -54,7 +71,10 @@
         "timestamp": 80,
         "datealias": "2016/11/30",
         "title": "Conspiracy",
-        "description": "The religious leaders plot against Jesus."
+        "description": "The religious leaders plot against Jesus.",
+        "importance": 80,
+        "context": ""
+
     }, {
         "id": "judgement",
         "filename": "judgement.mp4",
@@ -62,7 +82,10 @@
         "timestamp": 87,
         "datealias": "2016/11/30",
         "title": "Sentenced to death",
-        "description": "Jesus is condemned in a mock trial."
+        "description": "Jesus is condemned in a mock trial.",
+        "importance": 80,
+        "context": ""
+
     }, {
         "id": "death",
         "filename": "death.mp4",
@@ -70,7 +93,10 @@
         "timestamp": 94,
         "datealias": "2016/11/30",
         "title": "Death",
-        "description": "The son of God is put to death on a cross."
+        "description": "The son of God is put to death on a cross.",
+        "importance": 100,
+        "context": ""
+
     }, {
         "id": "alive",
         "filename": "alive.mp4",
@@ -78,6 +104,9 @@
         "timestamp": 99,
         "datealias": "2016/11/30",
         "title": "Jesus is Alive",
-        "description": "The resurrected Christ appears to his disciples."
+        "description": "The resurrected Christ appears to his disciples.",
+        "importance": 100,
+        "context": ""
+
     }]
 }
