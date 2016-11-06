@@ -94,18 +94,14 @@
         <!-- the video detail page -->
         <section class="page" id="video">
             <div id="menu-bar">
-                <div class="close"></div>
+                <div class="btn-close"></div>
             </div>
             <div class="video-wrapper video-meta-wrapper">
                 <div class="thumbnail-wrapper meta-thumbnail-wrapper">
                     <img class="thumbnail" id="meta-thumbnail" src="">
                     <div class="media-caption">
-                        <!-- <div class="caption-content">
-									<h2>Video title</h2>
-									<span>Video description</span>
-								</div> -->
                     </div>
-                    <div class="video-play" id="meta-video-play">
+                    <div class="btn-play" id="meta-btn-play">
                     </div>
                 </div>
                 <video id="meta-video" src="" autoplay controls style="display:none;">
@@ -113,12 +109,8 @@
 								</video>
             </div>
 
-            <div class="content-wrapper">
-                <div class="content-inner">
-                    <h2 id="video-title"></h2>
-                    <p id="date-alias"></p>
-                    <p id="description"></p>
-                </div>
+            <div class="content-wrapper-detail">
+                
             </div>
 
 
@@ -135,20 +127,20 @@
     <script src="./public/src/VR3d.js"></script>
     <script src="./public/src/js/VRinit.js"></script>
     <script type="text/javascript">
-    function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    var colors = ['#F0F082',
-    '#8CF08C' ,
-    '#8CF0F0' ,
-    '#8CA0FF' ,
-    '#F05050' ,];
-    var body = document.querySelector('body');
-    console.log(body)
-    var number = getRandomInt(0,4);
-    body.style.backgroundColor = colors[number];
-    console.log(colors[number]);
-
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var colors = ['#F0F082',
+            '#8CF08C',
+            '#8CF0F0',
+            '#8CA0FF',
+            '#F05050',
+        ];
+        var body = document.querySelector('body');
+        console.log(body)
+        var number = getRandomInt(0, 4);
+        body.style.backgroundColor = colors[number];
+        console.log(colors[number]);
     </script>
 
 </body>

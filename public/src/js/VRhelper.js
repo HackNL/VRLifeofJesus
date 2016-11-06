@@ -56,9 +56,13 @@ VR.get = (function () {
       request.send();
     });
   }
+
+  function isOdd(num) {
+    return num % 2;
+  }
   // show or hide the loading spinner
   function loading(show) {
-    let delayTime = 1000;
+    let delayTime = 500;
     if (show) {
       VR.get.one('.loading').classList.remove('disabled');
     } else {
@@ -74,6 +78,7 @@ VR.get = (function () {
     one: one,
     all: all,
     data: data,
+    isOdd: isOdd,
     loading: loading
   };
 })();

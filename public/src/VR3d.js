@@ -18,6 +18,7 @@ VR.V3d = (function () {
     renderer = new THREE.WebGLRenderer( { alpha: true , antialias: true });
     element = renderer.domElement;
     container = document.getElementById('timeline3D');
+    container.innerHTML = '';
     container.appendChild(element);
 
 		var loader = new THREE.OBJLoader(); 
@@ -65,26 +66,23 @@ VR.V3d = (function () {
     var geometry = new THREE.PlaneBufferGeometry(1000, 1000);
 
     clock = new THREE.Clock();
-
+  
     var raycaster = new THREE.Raycaster(); // create once
     var mouse = new THREE.Vector2(); // create once
-    document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+    document.addEventListener('mousedown', onDocumentMouseDown, false);
 
-    function onDocumentMouseDown( event ) 
-    {
+    function onDocumentMouseDown(event) {
       event.preventDefault();
  
- 
-      mouse.x = ( event.clientX / renderer.domElement.width ) * 2 - 1;
-      mouse.y = - ( event.clientY / renderer.domElement.height ) * 2 + 1;
+		 	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+			mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;		
 
-      raycaster.setFromCamera( mouse, camera );
-
+      raycaster.setFromCamera( mouse, camera );	
       var intersects = raycaster.intersectObjects( scene.children, true );
 	  	stopAllVideos();
       if ( intersects.length > 0 && intersects[0].object.data)//checks if there is any media data from the timeline associated to this object. 
       {
-		    var object3d =  intersects[ 0 ].object;
+        var object3d = intersects[0].object;
 
 				showVideo(intersects[ 0 ].object);
 
@@ -94,23 +92,21 @@ VR.V3d = (function () {
     generateCardboardTimeline(camera);
     animate();
   }
-  function enableVR()
-  {
+
+  function enableVR() {
     console.log("enabling VR");
-  	effect = new THREE.StereoEffect(renderer);
+    effect = new THREE.StereoEffect(renderer);
   }
 
-  function disableVR()
-  {
+  function disableVR() {
     console.log("disabling VR");
-  	effect = null;
+    effect = null;
   }
 
-  function toggleVR()
-  {
+  function toggleVR() {
     console.log("toggling VR");
-  	if (effect) disableVR();
-  	else enableVR();
+    if (effect) disableVR();
+    else enableVR();
   }
 
   function animate() {
@@ -188,9 +184,9 @@ VR.V3d = (function () {
   }
 
   function render(dt) {
-    if ( video && video.readyState === video.HAVE_ENOUGH_DATA ) {
-      imageContext.drawImage( video, 0, 0 );
-      if ( texture ) texture.needsUpdate = true;
+    if (video && video.readyState === video.HAVE_ENOUGH_DATA) {
+      imageContext.drawImage(video, 0, 0);
+      if (texture) texture.needsUpdate = true;
     }
     if (effect) {effect.render(scene, camera);}
     else {renderer.render(scene, camera);}
@@ -226,7 +222,6 @@ VR.V3d = (function () {
 		//play new video
     video.setAttribute('src',"media/video/"+mesh.data.filename);
     video.play();
-
   }
 
 	function stopAllVideos()

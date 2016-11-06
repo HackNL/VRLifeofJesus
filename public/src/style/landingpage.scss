@@ -1,72 +1,59 @@
 #vrmode {
   text-align: left;
 }
-
-li {
-  color: #fff;
-  list-style-type: none;
-  text-transform: left;
-  margin-top: 2em;
-}
-
-ul {
-  margin-bottom: 0.35em;
-}
 //the landing page with the parlax background
-
 #landing {
   .wrap {
     display: flex;
     height: 100%;
-    width: 100%;
-    position: relative;
     overflow: hidden;
+    position: relative;
+    width: 100%;
   }
 
   .bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scale(1.1);
-    z-index: -1;
     background: url('../../../media/images/background.jpeg') no-repeat center center; //the backgrount image
     background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: scale(1.1);
+    width: 100%;
+    z-index: -1;
   }
 
   .card {
-    margin: auto;
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 2px;
     backdrop-filter: blur(10px);
     background-color: #fff;
     background-color: hsla(0, 0%, 100%, .85);
+    border-radius: 2px;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, .05);
-    z-index: 4;
-    padding: 3em;
     box-sizing: border-box;
     display: block;
+    margin: auto;
+    max-width: 40em;
+    padding: 3em;
     text-align: center;
     width: 100%;
-    max-width: 40em;
+    z-index: 4;
 
     .buttons {
       margin: 1em;
     }
 
     h1 {
-      text-align: center;
       color: #000;
       margin: 0 0 1em;
+      text-align: center;
       text-transform: uppercase;
     }
 
     p {
-      max-width: 20em;
-      margin: 0 auto;
-      text-align: center;
       color: #000;
+      margin: 0 auto;
+      max-width: 20em;
+      text-align: center;
     }
   }
 }

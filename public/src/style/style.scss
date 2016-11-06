@@ -81,9 +81,13 @@ html {
 
 body {
   display: block;
+  overflow: hidden;
   position: relative;
 }
-
+video {
+  width: 100%;
+  height: auto;
+}
 .disabled {
   display: none !important;
 }
@@ -107,22 +111,4 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-}
-
-.btn {
-  font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
-  display: inline-block;
-  padding: 0.5em 1em;
-  border: none;
-  text-align: center;
-  background-color: transparent;
-  border: solid 2px #000;
-  color: #000;
-  font-size: 100%;
-  font-weight: 400;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  z-index: 10;
 }

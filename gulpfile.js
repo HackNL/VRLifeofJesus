@@ -137,6 +137,8 @@ gulp.task('styles', function () {
     csswring
   ];
   return gulp.src([
+
+      './public/src/style/buttons.scss',
       './public/src/style/style.scss',
       './public/src/style/fonts.scss',
       './public/src/style/landingpage.scss',
