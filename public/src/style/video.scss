@@ -64,6 +64,13 @@
 }
 
 .caption-content {
+  h2,
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
   margin-left: 1em;
   margin-right: 1em;
 }
@@ -71,6 +78,7 @@
 video {
   width: 100%;
 }
+
 #video{
 	.video-wrapper:after{
 		display:none;
