@@ -136,9 +136,14 @@ $black-color: #000;
 // detail page
 
 #video {
-  .video-wrapper:after {
-    display: none;
-  }
+    .video-detail-wrapper {
+      max-width: 50em;
+      margin: 0 auto;
+
+      img {
+        max-width: 50em;
+      }
+    }
 
   .video-container {
     max-width: 40em;
@@ -160,7 +165,10 @@ $black-color: #000;
     position: relative;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, .05);
   }
-
+.meta-thumbnail-wrapper{
+  display: flex;
+  position: relative;
+}
   .content-wrapper {
     width: 94%;
     padding: 40px 3%;
